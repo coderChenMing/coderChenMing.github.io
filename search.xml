@@ -1,6 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>crond定时任务</title>
+    <url>/2021/08/08/crond%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</url>
+    <content><![CDATA[<h2 id="crond服务实现定时任务。"><a href="#crond服务实现定时任务。" class="headerlink" title="crond服务实现定时任务。"></a>crond服务实现定时任务。</h2><pre><code>cron也是在/etc/init.d/中注册从而自启的，启动后它会扫描/var/spool/cron 、/etc/cron.d目录和 /etc/anacrontab文件，扫描到的文件中定义了各种定时任务。
+</code></pre>
+<h2 id="cron有两个配置文件，"><a href="#cron有两个配置文件，" class="headerlink" title="cron有两个配置文件，"></a>cron有两个配置文件，</h2><pre><code>一个是一个全局配置文件（/etc/crontab），是针对系统任务的；
+一组是crontab命令生成的配置文件（/var/spool/cron下的文件），是针对某个用户的.
+定时任务配置到任意一个中都可以。
+</code></pre>
+<h2 id="查看用户下的定时任务"><a href="#查看用户下的定时任务" class="headerlink" title="查看用户下的定时任务"></a>查看用户下的定时任务</h2><pre><code>crontab -l或cat /var/spool/cron/用户名
+</code></pre>
+<h2 id="表达式解析"><a href="#表达式解析" class="headerlink" title="表达式解析"></a>表达式解析</h2><pre><code>min(0-59) 
+hour(0-3) 
+day of month(1-31) 
+month(1-12) 
+day of week(0-6)
+eg: 0 1 * * *
+</code></pre>
+<h2 id="启动、停止、重启服务↓"><a href="#启动、停止、重启服务↓" class="headerlink" title="启动、停止、重启服务↓"></a>启动、停止、重启服务↓</h2><pre><code>systemctl start crond.service
+
+systemctl stop crond.service
+
+systemctl restart crond.service
+
+systemctl reload crond.service  
+</code></pre>
+<h2 id="清理垃圾文件"><a href="#清理垃圾文件" class="headerlink" title="清理垃圾文件"></a>清理垃圾文件</h2><pre><code>linux是一个很能自动产生文件的系统，日志、邮件、备份等。定时删除就显的很方便。
+语句写法：
+find 对应目录 -mtime +天数 -name &quot;文件名&quot; -exec rm -rf &#123;&#125; /;
+eg：
+将/backups目录下所有10天前带&quot;.&quot;的文件删除:
+find /backups -mtime +10 -name &quot;*.*&quot; -exec rm -rf &#123;&#125; /;
+解析:
+find：linux的查找命令，用户查找指定条件的文件
+/backups：想要进行清理的任意目录
+-mtime：标准语句写法
+＋10：查找10天前的文件，这里用数字代表天数，＋30表示查找30天前的文件
+&quot;*.*&quot;：希望查找的数据类型，&quot;*.jpg&quot;表示查找扩展名为jpg的所有文件，&quot;*&quot;表示查找所有文件
+-exec：固定写法
+rm -rf：强制删除文件，包括目录
+&#123;&#125; /; ：固定写法，一对大括号+空格+/+;
+可以将这小语句写到一个可执行文件中，再设置cron调度执行，那就可以让系统自动去清理相关文件。
+</code></pre>
+<h2 id="定时清理脚本编写"><a href="#定时清理脚本编写" class="headerlink" title="定时清理脚本编写"></a>定时清理脚本编写</h2><pre><code>新建一个可执行文件clear.sh
+#vi clear
+#!/bin/sh
+find /u01/backups -mtime +10 -name &quot;*.*&quot; -exec rm -rf &#123;&#125; /;
+赋权
+#chmod +x clear
+将clear.sh文件加入到系统计划任务，到点自动执行
+#crontab -e
+* 2 * * * /usr/local/bin/clear
+这里的设置是每天凌晨2点执行clear脚本进行数据清理
+</code></pre>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux crond</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>crond定时任务二</title>
+    <url>/2021/08/08/crond%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E4%BA%8C/</url>
+    <content><![CDATA[<h2 id="CentOS安装crontab"><a href="#CentOS安装crontab" class="headerlink" title="CentOS安装crontab:"></a>CentOS安装crontab:</h2><pre><code>yum install crontabs
+</code></pre>
+<h2 id="crond服务操作"><a href="#crond服务操作" class="headerlink" title="crond服务操作"></a>crond服务操作</h2><pre><code>service crond start     //启动服务
+service crond stop      //关闭服务
+service crond restart   //重启服务
+service crond reload    //重新载入配置
+查看crontab服务状态：service crond status
+手动启动crontab服务：service crond start
+</code></pre>
+<h2 id="查看crontab服务是否已设置为开机启动"><a href="#查看crontab服务是否已设置为开机启动" class="headerlink" title="查看crontab服务是否已设置为开机启动"></a>查看crontab服务是否已设置为开机启动</h2><pre><code>ntsysv
+设置开机启动
+chkconfig crond on
+</code></pre>
+<h2 id="定时脚本编写"><a href="#定时脚本编写" class="headerlink" title="定时脚本编写"></a>定时脚本编写</h2><pre><code>1)、在命令行输入: crontab -e 然后添加相应的任务，wq存盘退出
+  eg: crontab -e 
+      */1 * * * *  /home/test.sh    每过一分钟执行一次
+      0 4 * * *  /home/test.sh  每天凌晨四点执行一次
+2)、直接编辑/etc/crontab 文件
+vi /etc/crontab，添加相应的任务(这种方式不推荐)
+</code></pre>
+<h2 id="查看当前用户的定时执行任务"><a href="#查看当前用户的定时执行任务" class="headerlink" title="查看当前用户的定时执行任务"></a>查看当前用户的定时执行任务</h2><pre><code>crontab -l
+crontab -u root -l 查看指定用户的任务
+</code></pre>
+<h2 id="文件格式"><a href="#文件格式" class="headerlink" title="文件格式"></a>文件格式</h2><pre><code> Minute Hour Day Month DayofWeek CommandPath
+</code></pre>
+<h2 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h2><pre><code>Minute：每个小时的第几分钟执行该任务；取值范围0-59
+Hour：每天的第几个小时执行该任务；取值范围0-23
+Day：每月的第几天执行该任务；取值范围1-31
+Month：每年的第几个月执行该任务；取值范围1-12
+DayOfWeek：每周的第几天执行该任务；取值范围0-6，0表示周末
+CommandPath：指定要执行的程序路径
+</code></pre>
+<h2 id="时间格式"><a href="#时间格式" class="headerlink" title="时间格式"></a>时间格式</h2><pre><code>* ：表示任意的时刻；如小时位 * 则表示每个小时
+n ：表示特定的时刻；如小时位 5 就表示5时
+n,m ：表示特定的几个时刻；如小时位 1,10 就表示1时和10时
+n－m ：表示一个时间段；如小时位 1-5 就表示1到5点
+*/n : 表示每隔多少个时间单位执行一次；如小时位 */1 就表示每隔1个小时执行一次命令，也可以写成 1-23/1
+</code></pre>
+<h2 id="调度示例"><a href="#调度示例" class="headerlink" title="调度示例"></a>调度示例</h2><pre><code>* 1 * * * /opt/script/backup.sh ：从1:0到1:59 每隔1分钟 执行
+15 05 * * * /opt/script/backup.sh ：05:15 执行
+*/10 * * * * /opt/script/backup.sh ：每隔10分 执行
+0 17 * * 1 /opt/script/backup.sh ：每周一的 17:00 执行
+2 8-20/3 * * * /opt/script/backup.sh  8:02,11:02,14:02,17:02,20:02 执行
+30 21 * * * /etc/init.d/nginx restart            //每晚的21:30重启 nginx。
+45 4 1,10,22 * * /etc/init.d/nginx restart        //每月1、 10、22日的4 : 45重启nginx。
+10 1 * * 6,0 /etc/init.d/nginx restart            //每周六、周日的1 : 10重启nginx。
+0,30 18-23 * * * /etc/init.d/nginx restart        //每天18 : 00至23 : 00之间每隔30分钟重启nginx。
+0 23 * * 6 /etc/init.d/nginx restart              //每星期六的11 : 00 pm重启nginx。
+* */1 * * * /etc/init.d/nginx restart            //每一小时重启nginx
+* 23-7/1 * * * /etc/init.d/nginx restart          //晚上11点到早上7点之间，每 隔一小时重启nginx
+0 11 4 * mon-wed /etc/init.d/nginx restart        //每月的4号与每周一到周三 的11点重启nginx
+0 4 1 jan * /etc/init.d/nginx restart            //一月一号的4点重启nginx
+*/30 * * * * /usr/sbin/ntpdate 210.72.145.20      //每半小时同步一下时间
+</code></pre>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux crontab</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>入门</title>
     <url>/2020/08/06/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -19,24 +146,6 @@
 <h3 id="MarkDown-语法"><a href="#MarkDown-语法" class="headerlink" title="MarkDown 语法"></a>MarkDown 语法</h3><p> <a href="https://daringfireball.net/projects/markdown/">markdown</a></p>
 <h3 id="Hexo-主题"><a href="#Hexo-主题" class="headerlink" title="Hexo 主题"></a>Hexo 主题</h3><p> <a href="https://hexo.io/themes/">Hexo主题</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>使用hexo搭建githubpage博客</title>
-    <url>/2020/08/07/%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BAgithubpage%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h2 id="为什么要搞博客？"><a href="#为什么要搞博客？" class="headerlink" title="为什么要搞博客？"></a>为什么要搞博客？</h2><p>   互联网技术日新月异，如何快速又高效的提高我们的技术水平是每一个程序员都要面临的问题，像我，一天工作8-10小时，<br>上下班路上还要花费3到4个小时，除却这些时间，每天留给自己学习的时间不过两三个小时。大家都知道，现在行内内卷严重，<br>无论是出于家庭原因还是个人职业的发展，充分利用这有效的一点时间来提升自己的技术水平是十分重要的，虽然现在学习一门技术<br>有很多手段，比如看b站视频，某宝买点资源，或者是工资内部学习资料等等，各种方式大大降低了我们学习的困难程度，但是人类的脑子<br>是健忘的，所谓好记性不如烂笔头，将学习成果通过博客的方式来输出，我觉得是非常有利于我们自己的一件事。<br>    好处呢，大概有以下几点：<br>        1.加深印象。这点很有体会，某个技术点学起来没什么难度，但是你又不经常用，过了一段时间，忘了，再想拿起来，还得四处<br>    找资料，总结，重复成本很高。<br>        2.方便查找。同样，将学习成果按照自己的习惯分类，当你需要用的时候，很容易查找，很方便.<br>        3.培养总结的习惯。很好的培养自己思考和总结的能力，说不定哪天还能创造点东西，哈哈。<br>        4.交流进步。众人拾柴火焰高，一人一个想法，一千个人交流，每个人将会有一千个想法，棒棒哒.</p>
-<h2 id="什么是hexo"><a href="#什么是hexo" class="headerlink" title="什么是hexo?"></a>什么是hexo?</h2><p> <a href="https://hexo.io/zh-cn/">Hexo</a>是一个快速、简洁且高效的博客框架。<br> Hexo使用Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。<br> 当我们在遇到一个新东西的时候，进入其官网能帮助我们解决很多问题。关于什么是Hexo？<br> 还有一些关于Hexo的问题，可以进入Hexo官网进行查看，相信你会收益良多.</p>
-<h2 id="使用hexo搭建博客"><a href="#使用hexo搭建博客" class="headerlink" title="使用hexo搭建博客"></a>使用hexo搭建博客</h2><p>   安装Hexo相当简单。然而在安装前，您必须检查电脑中是否已安装下列应用程序：<br>   Node.js<br>   Git<br>   npm/cnpm 如果npm运行出错就安装cnpm国内镜像<br>   如果没有上面三个必须的环境，那就需要逐个安装了，网上很多方法可以安装，自行google</p>
-<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>   打开Git Bash Here输入:<br>   npm install -g hexo-cli/cnpm install -g hexo-cli<br>   检查是否安装Hexo完成,查询是否成功:<br>   hexo -V</p>
-<h2 id="搭建博客"><a href="#搭建博客" class="headerlink" title="搭建博客"></a>搭建博客</h2><p>   个人机器创建存储博客的文件夹或者目录<br>   执行：<br>   hexo init &lt;folder&gt;<br>   cd &lt;folder&gt;<br>   npm/cnpm install<br>   说明：&lt;folder&gt;是博客项目所在目录<br>   eg:<br>   1.hexo init myblog<br>   2.cd myblog<br>   3.npm/cnpm install<br>   以上执行完毕，就有了一个简单的博客，访问：localhost:4000查看</p>
-<h2 id="上传github发布"><a href="#上传github发布" class="headerlink" title="上传github发布"></a>上传github发布</h2><p>   1.在github上创建后缀名为github.io的repository<br>   eg: username.github.io<br>   2.修改博客目录下的_config.yml文件:<br>   deploy:<br>     type: git<br>     repository: <a href="https://github.com/username/username.github.io.git">https://github.com/username/username.github.io.git</a> #复制过来,username按照你自己自定义替换<br>     branch: master<br>   url: <a href="http://username.github.io/">http://username.github.io</a><br>   3.部署<br>    3.1 部署之前在博客目录路径gitbash执行:npm/cnpm install hexo-deployer-git –save<br>    3.2 每次提交时必须执行这三个命令:<br>        hexo clean<br>        hexo generate<br>        hexo deploy<br>        或者简写方式<br>        hexo clean<br>        hexo g<br>        hexo d<br>    3.3 启动博客查看<br>        hexo s  ,访问localhost:4000查看</p>
-<h2 id="Hexo-项目目录结构说明"><a href="#Hexo-项目目录结构说明" class="headerlink" title="Hexo 项目目录结构说明"></a>Hexo 项目目录结构说明</h2><p>   deploy：执行hexo deploy命令部署到GitHub上的内容目录<br>   public：执行hexo generate命令，输出的静态网页内容目录<br>   scaffolds：layout模板文件目录，其中的md文件可以添加编辑<br>   scripts：扩展脚本目录，这里可以自定义一些javascript脚本<br>   source：文章源码目录，该目录下的markdown和html文件均会被hexo处理。该页面对应repo的根目录，404文件、favicon.ico文件，CNAME文件等都应该放这里，该目录下可新建页面目录。<br>        drafts：草稿文章<br>        posts：发布文章<br>   themes：主题文件目录<br>   _config.yml：全局配置文件，大多数的设置都在这里<br>   package.json：应用程序数据，指明hexo的版本等信息，类似于一般软件中的关于按钮</p>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
   </entry>
   <entry>
     <title>jdk1.8安装</title>
@@ -71,6 +180,208 @@ export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JAVA_HOME&#125;/jre/lib:$CL
       </categories>
       <tags>
         <tag>jdk linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mongodb 安装与使用入门</title>
+    <url>/2021/08/08/mongodb-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<h2 id="下载安装文件"><a href="#下载安装文件" class="headerlink" title="下载安装文件"></a>下载安装文件</h2><pre><code>wget ftp://192.168.205.11/Third_party/linux/mongodb-linux-x86_64-rhel62-3.4.2.gz
+</code></pre>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="1-解压安装文件"><a href="#1-解压安装文件" class="headerlink" title="(1).解压安装文件"></a>(1).解压安装文件</h3><pre><code>tar -xzvf mongodb-linux-x86_64-rhel62-3.4.2.gz -C /usr/local/eversec/
+cd /usr/local/eversec/
+mv mongodb-linux-x86_64-rhel62-3.4.2 mongodb
+cd /usr/local/eversec/mongodb
+cp bin/* /usr/local/bin
+</code></pre>
+<h3 id="2-创建目录"><a href="#2-创建目录" class="headerlink" title="(2).创建目录"></a>(2).创建目录</h3><pre><code> 创建数据存放目录，例如：mkdir -p /home/mongodb/data
+ 创建日志存放目录，例如：mkdir -p /home/mongodb/logs
+ 创建pidfile文件路径，例如：mkdir /var/run/mongodb
+ 创建conf存放目录，例如：mkdir /usr/local/eversec/mongodb/conf
+</code></pre>
+<h3 id="3-修改配置文件"><a href="#3-修改配置文件" class="headerlink" title="(3).修改配置文件"></a>(3).修改配置文件</h3><pre><code>添加如下内容到 vi /usr/local/eversec/mongodb/conf/mongodb.conf
+# mongod.conf
+
+# for documentation of all options, see:
+#   http://docs.mongodb.org/manual/reference/configuration-options/
+
+# where to write logging data.
+systemLog:
+  destination: file
+  logAppend: true
+  path: /home/mongodb/logs/mongodb.log
+
+# Where and how to store data.
+storage:
+  dbPath: /home/mongodb/data/
+  journal:
+    enabled: true
+#  engine:
+#  mmapv1:
+#  wiredTiger:
+
+# how the process runs
+processManagement:
+  fork: true  # fork and run in background
+  pidFilePath: /var/run/mongodb/mongod.pid 
+# location of pidfile
+
+# network interfaces
+net:
+  port: 27017
+  bindIp: 127.0.0.1
+# eg: 127.0.0.1,192.168.200.221 Listen to local interface only, comment to listen on all interfaces.
+
+#security:
+
+#operationProfiling:
+
+#replication:
+
+#sharding:
+
+## Enterprise-Only Options
+
+#auditLog:
+
+#snmp:
+注：
+修改日志文件路径，例：systemLog下的path
+修改数据文件路径，例：storage下的dbPath
+远程访问时，绑定具体IP。例：bindIp:127.0.0.1,192.168.50.228(根据服务器ip填写)
+</code></pre>
+<h2 id="无认证启动"><a href="#无认证启动" class="headerlink" title="无认证启动"></a>无认证启动</h2><pre><code>mongod --config /usr/local/mongodb/conf/mongodb.conf  --dbpath /home/mongodb/data 
+</code></pre>
+<h2 id="客户端连接"><a href="#客户端连接" class="headerlink" title="客户端连接"></a>客户端连接</h2><pre><code>./mongo
+关闭：
+use admin;
+db.shutdownServer();
+</code></pre>
+<h2 id="设置验证用户启动"><a href="#设置验证用户启动" class="headerlink" title="设置验证用户启动"></a>设置验证用户启动</h2><pre><code>设置用户见下方：无认证启动，添加用户后，配置，认证启动
+security:
+Linux：authorization: enabled
+windows:mongodb.conf 配置 auth=true;
+mongod --config /usr/local/mongodb/conf/mongodb.conf  --dbpath /home/mongodb/data --auth
+</code></pre>
+<h2 id="客户端连接-1"><a href="#客户端连接-1" class="headerlink" title="客户端连接"></a>客户端连接</h2><pre><code>./mongo -uroot -p123456 --authenticationDatabase admin
+</code></pre>
+<h2 id="查看端口占用"><a href="#查看端口占用" class="headerlink" title="查看端口占用"></a>查看端口占用</h2><pre><code>netstat -lanp | grep &quot;27017&quot;
+</code></pre>
+<h2 id="mongodb设置开机启动"><a href="#mongodb设置开机启动" class="headerlink" title="mongodb设置开机启动:"></a>mongodb设置开机启动:</h2><pre><code>vim  /etc/rc.local
+mongod --dbpath=/usr/local/mongodb/data --logpath=/usr/local/mongodb/logs/mongodb.log --logappend --fork
+</code></pre>
+<h2 id="关闭mongodb"><a href="#关闭mongodb" class="headerlink" title="关闭mongodb"></a>关闭mongodb</h2><pre><code>use admin;
+db.shutdownServer();
+</code></pre>
+<h2 id="相关操作"><a href="#相关操作" class="headerlink" title="相关操作"></a>相关操作</h2><h3 id="创建数据库："><a href="#创建数据库：" class="headerlink" title="创建数据库："></a>创建数据库：</h3><pre><code>use database;
+eg: use test;
+</code></pre>
+<p>   ###查看数据库下有那些集合：<br>    show collections;</p>
+<h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><pre><code>db.dropDatabase();
+注意：database下在有collection时才会显示
+</code></pre>
+<h3 id="查看数据库列表"><a href="#查看数据库列表" class="headerlink" title="查看数据库列表"></a>查看数据库列表</h3><pre><code>show dbs;
+</code></pre>
+<h3 id="创建集合"><a href="#创建集合" class="headerlink" title="创建集合"></a>创建集合</h3><pre><code>db.createCollection(&quot;namme&quot;,[options]); 
+eg: db.createCollection(&quot;student&quot;);
+name必须要有，options可以省略
+</code></pre>
+<h3 id="删除集合"><a href="#删除集合" class="headerlink" title="删除集合"></a>删除集合</h3><pre><code>db.collection.drop(); eg:db.student.drop();
+</code></pre>
+<h3 id="插入命令"><a href="#插入命令" class="headerlink" title="插入命令"></a>插入命令</h3><pre><code>db.collection.insert(document);
+document:json格式
+eg: 
+db.student.insert(&#123;&quot;name&quot;:&quot;张三&quot;,&quot;age&quot;:24&#125;);
+</code></pre>
+<h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><pre><code>db.collection.update(&#123;*&#125;,&#123;*&#125;);
+eg:
+db.student.update(&#123;&quot;name&quot;:&quot;zhangsan&quot;&#125;,&#123;&quot;name&quot;:&quot;李四&quot;,&quot;age&quot;:20&#125;)
+</code></pre>
+<h3 id="更新2"><a href="#更新2" class="headerlink" title="更新2"></a>更新2</h3><pre><code>db.student.update(&#123;&quot;name&quot;:&quot;zhangsan&quot;&#125;,&#123;$set:&#123;&quot;name&quot;:&quot;李四&quot;,&quot;age&quot;:40&#125;&#125;,&#123;multi:true&#125;);
+$set：修改器相比直接update,直接update:先删除，在插入,$set:做到了真正的更新，可以对指定字段进行更新
+multi: false表示只修改第一个匹配的文档，true：表示更新所有匹配的文档
+</code></pre>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><pre><code>db.student.remove(); // 全部删除
+db.student.remove(&#123;&quot;name&quot;:&quot;张三&quot;&#125;);// 匹配删除
+</code></pre>
+<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><pre><code>db.student.find();//查询全部
+db.student.find(&#123;&quot;name&quot;:&quot;张三&quot;&#125;);//匹配查询
+db.student.find(&#123;&quot;name&quot;:&quot;张三&quot;&#125;,&#123;name:1,age:1,_id:0&#125;);//匹配查询,过滤域显示
+</code></pre>
+<h3 id="用户创建"><a href="#用户创建" class="headerlink" title="用户创建"></a>用户创建</h3><pre><code>用户创建是和数据库对应的，admin数据库
+eg:
+use admin;
+db.createUser(
+        &#123;
+        user:&quot;root&quot;,
+        pwd:&quot;123456&quot;,
+        roles:[&#123;role:&quot;root&quot;,db:&quot;admin&quot;&#125;]
+        &#125;
+);
+结果:
+Successfully added user: &#123;
+        &quot;user&quot; : &quot;root&quot;,
+        &quot;roles&quot; : [
+                &#123;
+                        &quot;role&quot; : &quot;root&quot;,
+                        &quot;db&quot; : &quot;admin&quot;
+                &#125;
+        ]
+&#125;
+use admin;
+db.createUser(
+    &#123;
+    user:&quot;test&quot;,
+    pwd:&quot;123456&quot;,
+    roles:[&#123;role:&quot;root&quot;,db:&quot;admin&quot;&#125;]
+    &#125;
+);
+</code></pre>
+<h3 id="查看用户"><a href="#查看用户" class="headerlink" title="查看用户"></a>查看用户</h3><pre><code>use admin;
+show users;
+</code></pre>
+<h3 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h3><pre><code>db.dropUser(&quot;test&quot;);
+</code></pre>
+<h3 id="修改用户角色"><a href="#修改用户角色" class="headerlink" title="修改用户角色"></a>修改用户角色</h3><pre><code>db.updateUser(&quot;test&quot;,&#123;roles:[&#123;role:&quot;readWriteAnyDatabase&quot;,db:&quot;admin&quot;&#125;]&#125;);
+结果：
+&#123;
+        &quot;_id&quot; : &quot;admin.test&quot;,
+        &quot;user&quot; : &quot;test&quot;,
+        &quot;db&quot; : &quot;admin&quot;,
+        &quot;roles&quot; : [
+                &#123;
+                        &quot;role&quot; : &quot;readWriteAnyDatabase&quot;,
+                        &quot;db&quot; : &quot;admin&quot;
+                &#125;
+        ]
+&#125;
+</code></pre>
+<h3 id="修改用户密码"><a href="#修改用户密码" class="headerlink" title="修改用户密码:"></a>修改用户密码:</h3><pre><code>db.changeUserPassword(&quot;test&quot;,&quot;newPass&quot;);
+然后使用新密码登录进行验证。
+</code></pre>
+]]></content>
+      <categories>
+        <category>mongo</category>
+      </categories>
+      <tags>
+        <tag>linux mongo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用hexo搭建githubpage博客</title>
+    <url>/2020/08/07/%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BAgithubpage%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h2 id="为什么要搞博客？"><a href="#为什么要搞博客？" class="headerlink" title="为什么要搞博客？"></a>为什么要搞博客？</h2><p>   互联网技术日新月异，如何快速又高效的提高我们的技术水平是每一个程序员都要面临的问题，像我，一天工作8-10小时，<br>上下班路上还要花费3到4个小时，除却这些时间，每天留给自己学习的时间不过两三个小时。大家都知道，现在行内内卷严重，<br>无论是出于家庭原因还是个人职业的发展，充分利用这有效的一点时间来提升自己的技术水平是十分重要的，虽然现在学习一门技术<br>有很多手段，比如看b站视频，某宝买点资源，或者是工资内部学习资料等等，各种方式大大降低了我们学习的困难程度，但是人类的脑子<br>是健忘的，所谓好记性不如烂笔头，将学习成果通过博客的方式来输出，我觉得是非常有利于我们自己的一件事。<br>    好处呢，大概有以下几点：<br>        1.加深印象。这点很有体会，某个技术点学起来没什么难度，但是你又不经常用，过了一段时间，忘了，再想拿起来，还得四处<br>    找资料，总结，重复成本很高。<br>        2.方便查找。同样，将学习成果按照自己的习惯分类，当你需要用的时候，很容易查找，很方便.<br>        3.培养总结的习惯。很好的培养自己思考和总结的能力，说不定哪天还能创造点东西，哈哈。<br>        4.交流进步。众人拾柴火焰高，一人一个想法，一千个人交流，每个人将会有一千个想法，棒棒哒.</p>
+<h2 id="什么是hexo"><a href="#什么是hexo" class="headerlink" title="什么是hexo?"></a>什么是hexo?</h2><p> <a href="https://hexo.io/zh-cn/">Hexo</a>是一个快速、简洁且高效的博客框架。<br> Hexo使用Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。<br> 当我们在遇到一个新东西的时候，进入其官网能帮助我们解决很多问题。关于什么是Hexo？<br> 还有一些关于Hexo的问题，可以进入Hexo官网进行查看，相信你会收益良多.</p>
+<h2 id="使用hexo搭建博客"><a href="#使用hexo搭建博客" class="headerlink" title="使用hexo搭建博客"></a>使用hexo搭建博客</h2><p>   安装Hexo相当简单。然而在安装前，您必须检查电脑中是否已安装下列应用程序：<br>   Node.js<br>   Git<br>   npm/cnpm 如果npm运行出错就安装cnpm国内镜像<br>   如果没有上面三个必须的环境，那就需要逐个安装了，网上很多方法可以安装，自行google</p>
+<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>   打开Git Bash Here输入:<br>   npm install -g hexo-cli/cnpm install -g hexo-cli<br>   检查是否安装Hexo完成,查询是否成功:<br>   hexo -V</p>
+<h2 id="搭建博客"><a href="#搭建博客" class="headerlink" title="搭建博客"></a>搭建博客</h2><p>   个人机器创建存储博客的文件夹或者目录<br>   执行：<br>   hexo init &lt;folder&gt;<br>   cd &lt;folder&gt;<br>   npm/cnpm install<br>   说明：&lt;folder&gt;是博客项目所在目录<br>   eg:<br>   1.hexo init myblog<br>   2.cd myblog<br>   3.npm/cnpm install<br>   以上执行完毕，就有了一个简单的博客，访问：localhost:4000查看</p>
+<h2 id="上传github发布"><a href="#上传github发布" class="headerlink" title="上传github发布"></a>上传github发布</h2><p>   1.在github上创建后缀名为github.io的repository<br>   eg: username.github.io<br>   2.修改博客目录下的_config.yml文件:<br>   deploy:<br>     type: git<br>     repository: <a href="https://github.com/username/username.github.io.git">https://github.com/username/username.github.io.git</a> #复制过来,username按照你自己自定义替换<br>     branch: master<br>   url: <a href="http://username.github.io/">http://username.github.io</a><br>   3.部署<br>    3.1 部署之前在博客目录路径gitbash执行:npm/cnpm install hexo-deployer-git –save<br>    3.2 每次提交时必须执行这三个命令:<br>        hexo clean<br>        hexo generate<br>        hexo deploy<br>        或者简写方式<br>        hexo clean<br>        hexo g<br>        hexo d<br>    3.3 启动博客查看<br>        hexo s  ,访问localhost:4000查看</p>
+<h2 id="Hexo-项目目录结构说明"><a href="#Hexo-项目目录结构说明" class="headerlink" title="Hexo 项目目录结构说明"></a>Hexo 项目目录结构说明</h2><p>   deploy：执行hexo deploy命令部署到GitHub上的内容目录<br>   public：执行hexo generate命令，输出的静态网页内容目录<br>   scaffolds：layout模板文件目录，其中的md文件可以添加编辑<br>   scripts：扩展脚本目录，这里可以自定义一些javascript脚本<br>   source：文章源码目录，该目录下的markdown和html文件均会被hexo处理。该页面对应repo的根目录，404文件、favicon.ico文件，CNAME文件等都应该放这里，该目录下可新建页面目录。<br>        drafts：草稿文章<br>        posts：发布文章<br>   themes：主题文件目录<br>   _config.yml：全局配置文件，大多数的设置都在这里<br>   package.json：应用程序数据，指明hexo的版本等信息，类似于一般软件中的关于按钮</p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
