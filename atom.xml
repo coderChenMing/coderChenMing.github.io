@@ -6,7 +6,7 @@
   <link href="http://coderchenming.github.io/atom.xml" rel="self"/>
   
   <link href="http://coderchenming.github.io/"/>
-  <updated>2021-08-07T08:46:11.306Z</updated>
+  <updated>2021-08-07T13:43:54.776Z</updated>
   <id>http://coderchenming.github.io/</id>
   
   <author>
@@ -17,17 +17,45 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>jdk1.8安装</title>
+    <link href="http://coderchenming.github.io/2021/08/08/jdk1-8%E5%AE%89%E8%A3%85/"/>
+    <id>http://coderchenming.github.io/2021/08/08/jdk1-8%E5%AE%89%E8%A3%85/</id>
+    <published>2021-08-07T20:52:29.000Z</published>
+    <updated>2021-08-07T13:43:54.776Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;下载jdk1-8安装包&quot;&gt;&lt;a href=&quot;#下载jdk1-8安装包&quot; class=&quot;headerlink&quot; title=&quot;下载jdk1.8安装包&quot;&gt;&lt;/a&gt;下载jdk1.8安装包&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;wget ftp://192.168.205.11/Third_party/linux/jdk-8u162-linux-x64.rpm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;查看已安装jdk&quot;&gt;&lt;a href=&quot;#查看已安装jdk&quot; class=&quot;headerlink&quot; title=&quot;查看已安装jdk&quot;&gt;&lt;/a&gt;查看已安装jdk&lt;/h2&gt;</summary>
+    
+    
+    
+    <category term="java" scheme="http://coderchenming.github.io/categories/java/"/>
+    
+    
+    <category term="jdk linux" scheme="http://coderchenming.github.io/tags/jdk-linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>安装mysql</title>
-    <link href="http://coderchenming.github.io/2021/08/08/%E5%AE%89%E8%A3%85mysql/"/>
-    <id>http://coderchenming.github.io/2021/08/08/%E5%AE%89%E8%A3%85mysql/</id>
+    <link href="http://coderchenming.github.io/2021/08/08/%E5%AE%89%E8%A3%85mysql5.7/"/>
+    <id>http://coderchenming.github.io/2021/08/08/%E5%AE%89%E8%A3%85mysql5.7/</id>
     <published>2021-08-07T16:01:28.000Z</published>
-    <updated>2021-08-07T08:46:11.306Z</updated>
+    <updated>2021-08-07T14:18:45.757Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;下载mysql-5-7安装包&quot;&gt;&lt;a href=&quot;#下载mysql-5-7安装包&quot; class=&quot;headerlink&quot; title=&quot;下载mysql-5.7安装包&quot;&gt;&lt;/a&gt;下载mysql-5.7安装包&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;centos6下载:
+wget ftp://192.168.205.11/Third_party/linux/MySQL-5.7.23.zip
+&lt;/code&gt;&lt;/pre&gt;
+   &lt;img src=&quot;/images/mysql5.7/getMysql.png&quot; width=&quot;1000px&quot; height=&quot;300px&quot; alt=&quot;下载mysql-5.7安装包&quot;&gt;</summary>
     
     
     
+    <category term="database" scheme="http://coderchenming.github.io/categories/database/"/>
     
     
-    <category term="mysql" scheme="http://coderchenming.github.io/tags/mysql/"/>
+    <category term="mysql linux" scheme="http://coderchenming.github.io/tags/mysql-linux/"/>
     
   </entry>
   

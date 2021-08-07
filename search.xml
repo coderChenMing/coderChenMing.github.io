@@ -39,11 +39,296 @@
       </tags>
   </entry>
   <entry>
-    <title>安装mysql</title>
-    <url>/2021/08/08/%E5%AE%89%E8%A3%85mysql/</url>
-    <content><![CDATA[]]></content>
+    <title>jdk1.8安装</title>
+    <url>/2021/08/08/jdk1-8%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h2 id="下载jdk1-8安装包"><a href="#下载jdk1-8安装包" class="headerlink" title="下载jdk1.8安装包"></a>下载jdk1.8安装包</h2><pre><code>wget ftp://192.168.205.11/Third_party/linux/jdk-8u162-linux-x64.rpm
+</code></pre>
+<h2 id="查看已安装jdk"><a href="#查看已安装jdk" class="headerlink" title="查看已安装jdk"></a>查看已安装jdk</h2><pre><code>rpm -qa|grep jdk
+</code></pre>
+   <img src="/images/install_jdk/look.png" width="900px" height="100px" alt="查看已安装jdk">
+   
+<h3 id="若已安装jdk，但其版本不是1-8-0-162，则需将其卸载"><a href="#若已安装jdk，但其版本不是1-8-0-162，则需将其卸载" class="headerlink" title="若已安装jdk，但其版本不是1.8.0_162，则需将其卸载"></a>若已安装jdk，但其版本不是1.8.0_162，则需将其卸载</h3><pre><code>rpm -e + 查到已安装jdk资源
+</code></pre>
+<h2 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h2><pre><code>rpm -ivh jdk-8u162-linux-x64.rpm
+</code></pre>
+<p>   <img src="/images/install_jdk/install.png" alt="安装jdk"></p>
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><pre><code>vi /etc/profile
+</code></pre>
+<h3 id="在文件末尾添加如下内容"><a href="#在文件末尾添加如下内容" class="headerlink" title="在文件末尾添加如下内容"></a>在文件末尾添加如下内容</h3><pre><code>export JAVA_HOME=/usr/java/jdk1.8.0_162
+export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH
+export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JAVA_HOME&#125;/jre/lib:$CLASSPATH
+</code></pre>
+<h3 id="1-立即生效："><a href="#1-立即生效：" class="headerlink" title="(1).立即生效："></a>(1).立即生效：</h3><pre><code>source /etc/profile
+</code></pre>
+<h3 id="2-再次进入终端生效"><a href="#2-再次进入终端生效" class="headerlink" title="(2).再次进入终端生效"></a>(2).再次进入终端生效</h3><pre><code>vi /root/.bashrc
+添加source /etc/profile
+</code></pre>
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><pre><code>java -version
+</code></pre>
+   <img src="/images/install_jdk/verify.png" width="900px" height="150px" alt="验证已安装jdk">]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
       <tags>
-        <tag>mysql</tag>
+        <tag>jdk linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>安装mysql</title>
+    <url>/2021/08/08/%E5%AE%89%E8%A3%85mysql5.7/</url>
+    <content><![CDATA[<h2 id="下载mysql-5-7安装包"><a href="#下载mysql-5-7安装包" class="headerlink" title="下载mysql-5.7安装包"></a>下载mysql-5.7安装包</h2><pre><code>centos6下载:
+wget ftp://192.168.205.11/Third_party/linux/MySQL-5.7.23.zip
+</code></pre>
+   <img src="/images/mysql5.7/getMysql.png" width="1000px" height="300px" alt="下载mysql-5.7安装包">
+   
+<h2 id="解压安装文件"><a href="#解压安装文件" class="headerlink" title="解压安装文件"></a>解压安装文件</h2><pre><code>unzip MySQL-5.7.23.zip
+</code></pre>
+<h2 id="查看是否已安装mysql"><a href="#查看是否已安装mysql" class="headerlink" title="查看是否已安装mysql"></a>查看是否已安装mysql</h2><pre><code>rpm -qa | grep -i mysql
+</code></pre>
+<h2 id="如已经安装则停止mysql进程"><a href="#如已经安装则停止mysql进程" class="headerlink" title="如已经安装则停止mysql进程"></a>如已经安装则停止mysql进程</h2><pre><code>service mysqld stop
+</code></pre>
+<h2 id="卸载历史安装"><a href="#卸载历史安装" class="headerlink" title="卸载历史安装"></a>卸载历史安装</h2><pre><code>rpm -e  + 已安装
+</code></pre>
+<h2 id="安装5-7版本"><a href="#安装5-7版本" class="headerlink" title="安装5.7版本"></a>安装5.7版本</h2><pre><code>rpm -ivh mysql-community-common-5.7.23-1.el6.x86_64.rpm       
+rpm -ivh mysql-community-libs-5.7.23-1.el6.x86_64.rpm
+rpm -ivh mysql-community-client-5.7.23-1.el6.x86_64.rpm
+rpm -ivh mysql-community-server-5.7.23-1.el6.x86_64.rpm 
+rpm -ivh mysql-community-devel-5.7.23-1.el6.x86_64.rpm
+注: base9.2时需安装numactl-2.0.9-2.el6.i686.rpm
+</code></pre>
+<h3 id="报错1"><a href="#报错1" class="headerlink" title="报错1"></a>报错1</h3><pre><code>1. mysql-community-common(x86-64) &gt;= 5.7.9 is needed by mysql-community-libs-5.7.23-1.el6.x86_64 
+</code></pre>
+<h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><pre><code>清除yum里所有mysql依赖包
+rpm -qa|grep mysql
+yum remove mysql-libs
+</code></pre>
+<h3 id="报错2"><a href="#报错2" class="headerlink" title="报错2"></a>报错2</h3><pre><code>   error: Failed dependencies:
+   libaio.so.1()(64bit) is needed by mysql-community-server-5.7.23-1.el6.x86_64
+   libaio.so.1(LIBAIO_0.1)(64bit) is needed by mysql-community-server-5.7.23-1.el6.x86_64
+   libaio.so.1(LIBAIO_0.4)(64bit) is needed by mysql-community-server-5.7.23-1.el6.x86_64
+   libsasl2.so.2()(64bit) is needed by mysql-community-server-5.7.23-1.el6.x86_64
+</code></pre>
+<h4 id="解决办法-1"><a href="#解决办法-1" class="headerlink" title="解决办法"></a>解决办法</h4><pre><code>yum install libaio
+</code></pre>
+<h3 id="再报错"><a href="#再报错" class="headerlink" title="再报错"></a>再报错</h3><pre><code>error: Failed dependencies:
+    libsasl2.so.2()(64bit) is needed by mysql-community-server-5.7.23-1.el6.x86_64
+</code></pre>
+<h2 id="修改数据表存储路径为-home-mysql-data"><a href="#修改数据表存储路径为-home-mysql-data" class="headerlink" title="修改数据表存储路径为/home/mysql/data"></a>修改数据表存储路径为/home/mysql/data</h2><pre><code>a.清除/home/mysql/data目录下文件
+  rm -rf /home/mysql/data/*
+b.修改/etc/my.cnf配置文件
+  vi /etc/my.cnf
+  datadir=/var/lib/mysql修改为datadir=/home/mysql/data
+  socket=/var/lib/mysql/mysql.sock修改为socket=/home/mysql/data/mysql.sock
+  按Esc键，输入:wq，按回车键保存退出
+c.创建mysql.sock软链
+  ln -s /home/mysql/data/mysql.sock /var/lib/mysql/mysql.sock
+</code></pre>
+<h2 id="启动mysql"><a href="#启动mysql" class="headerlink" title="启动mysql"></a>启动mysql</h2><pre><code>service mysqld start
+</code></pre>
+<h2 id="无密登陆设置密码"><a href="#无密登陆设置密码" class="headerlink" title="无密登陆设置密码"></a>无密登陆设置密码</h2><pre><code>mysqld_safe --skip-grant-tables
+</code></pre>
+<h3 id="为了安全可以这样禁止远程连接："><a href="#为了安全可以这样禁止远程连接：" class="headerlink" title="为了安全可以这样禁止远程连接："></a>为了安全可以这样禁止远程连接：</h3><pre><code>mysqld_safe--skip-grant-tables--skip-networking
+现在可以无密登录
+mysql -uroot -p 两次回车即可登录
+</code></pre>
+<h3 id="无密登录后设置新密码"><a href="#无密登录后设置新密码" class="headerlink" title="无密登录后设置新密码"></a>无密登录后设置新密码</h3><pre><code>use mysql;
+update  mysql.user  set  authentication_string=password(&quot;新密码&quot;) where  user=&quot;root&quot;  and host=&quot;localhost&quot;;
+密码等级默认MEDIUM,所以不能设置简单密码
+update  mysql.user  set  authentication_string=password(&quot;QHDcm@1991&quot;) where  user=&quot;root&quot;  and host=&quot;localhost&quot;;
+update  mysql.user  set  password_expired=password(&quot;新密码&quot;) where  user=&quot;root&quot;  and host=&quot;localhost&quot;;
+flush  privileges;  //更新
+quit;
+说明：select password(&quot;123456&quot;):password(*):函数加密
+退出后使用新密码登录
+mysql -u root -p 新密码
+
+常见错误：
+ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement
+解决办法
+eg：alter user  &#39;root&#39;@&#39;localhost&#39; identified by&#39;123456&#39;;
+ERROR 1819 (HY000): Your password does not satisfy the current policy requirements
+eg:alter user  &#39;root&#39;@&#39;localhost&#39; identified by&#39;QHDcm@1991&#39;;
+</code></pre>
+<h2 id="符合标准的新密码登录后为了能够改成简单密码，需要修改一些参数"><a href="#符合标准的新密码登录后为了能够改成简单密码，需要修改一些参数" class="headerlink" title="符合标准的新密码登录后为了能够改成简单密码，需要修改一些参数"></a>符合标准的新密码登录后为了能够改成简单密码，需要修改一些参数</h2><pre><code>mysql&gt; set global validate_password_policy=0;
+Query OK, 0 rows affected (0.05 sec)
+
+mysql&gt; set global validate_password_mixed_case_count=0;
+Query OK, 0 rows affected (0.00 sec)
+ 
+mysql&gt; set global validate_password_number_count=3;
+Query OK, 0 rows affected (0.00 sec)
+ 
+mysql&gt; set global validate_password_special_char_count=0;
+Query OK, 0 rows affected (0.00 sec)
+ 
+mysql&gt; set global validate_password_length=3;
+Query OK, 0 rows affected (0.00 sec)
+ 
+mysql&gt; SHOW VARIABLES LIKE &#39;validate_password%&#39;;
++--------------------------------------+-------+
+| Variable_name                        | Value |
++--------------------------------------+-------+
+| validate_password_dictionary_file    |       |
+| validate_password_length             | 3     |
+| validate_password_mixed_case_count   | 0     |
+| validate_password_number_count       | 3     |
+| validate_password_policy             | LOW   |
+| validate_password_special_char_count | 0     |
++--------------------------------------+-------+
+6 rows in set (0.00 sec)
+
+validate_password_dictionary_file
+插件用于验证密码强度的字典文件路径。
+
+validate_password_length
+密码最小长度，参数默认为8，它有最小值的限制，最小值为：validate_password_number_count + validate_password_special_char_count + (2 * validate_password_mixed_case_count)
+
+validate_password_mixed_case_count
+密码至少要包含的小写字母个数和大写字母个数。
+
+validate_password_number_count
+密码至少要包含的数字个数。
+
+validate_password_policy
+密码强度检查等级，0/LOW、1/MEDIUM、2/STRONG。有以下取值：
+Policy                 Tests Performed                                                                                                        
+0 or LOW               Length                                                                                                                      
+1 or MEDIUM         Length; numeric, lowercase/uppercase, and special characters                             
+2 or STRONG        Length; numeric, lowercase/uppercase, and special characters; dictionary file      
+默认是1，即MEDIUM，所以刚开始设置的密码必须符合长度，且必须含有数字，小写或大写字母，特殊字符。  
+validate_password_special_char_count
+密码至少要包含的特殊字符数。
+</code></pre>
+<h3 id="在my-cnf中配置永久生效"><a href="#在my-cnf中配置永久生效" class="headerlink" title="在my.cnf中配置永久生效"></a>在my.cnf中配置永久生效</h3><pre><code>validate_password_policy=0
+validate_password_length=3
+validate_password_special_char_count=0
+validate_password_mixed_case_count=0
+</code></pre>
+<h3 id="修改为简单密码"><a href="#修改为简单密码" class="headerlink" title="修改为简单密码"></a>修改为简单密码</h3><pre><code>update  mysql.user  set  authentication_string=password(&quot;123456&quot;) where  user=&quot;root&quot;  and host=&quot;localhost&quot;;
+</code></pre>
+<h2 id="用户授权"><a href="#用户授权" class="headerlink" title="用户授权"></a>用户授权</h2><pre><code>grant all privileges on *.* to root@&#39;localhost&#39; identified by &#39;123456&#39; with grant option;  
+flush privileges;
+quit;
+CREATE USER &#39;javacui&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;123456&#39;; 
+CREATE USER &#39;javacui&#39;@&#39;172.20.0.0/255.255.0.0&#39; IDENDIFIED BY &#39;123456&#39;; 
+CREATE USER &#39;javacui&#39;@&#39;%&#39; IDENTIFIED BY &#39;123456&#39;; 
+CREATE USER &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;123456&#39;; 
+CREATE USER &#39;mysql&#39;@&#39;%&#39; IDENTIFIED BY &#39;123456&#39;; 
+CREATE USER &#39;javacui&#39;@&#39;%&#39; IDENTIFIED BY &#39;&#39;; 
+CREATE USER &#39;javacui&#39;@&#39;%&#39;;
+CREATE USER &#39;mysql&#39;@&#39;%&#39;;
+CREATE USER &#39;root&#39;@&#39;%&#39;;
+ALTER USER &#39;root&#39;@&#39;%&#39; PASSWORD EXPIRE NEVER;
+databasename –  数据库名
+tablename - 表名,如果要授予该用户对所有数据库和表的相应操作权限则可用* 表示, 如*.*
+GRANT privileges ON databasename.tablename TO &#39;username&#39;@&#39;host&#39;;
+GRANT SELECT, INSERT ON test.user TO &#39;javacui&#39;@&#39;%&#39;; 
+GRANT ALL ON *.* TO &#39;javacui&#39;@&#39;%&#39;;
+GRANT ALL ON *.* TO &#39;root&#39;@&#39;%&#39;;
+GRANT ALL ON *.* TO &#39;mysql&#39;@&#39;%&#39;;
+</code></pre>
+<h2 id="设置与更改用户密码"><a href="#设置与更改用户密码" class="headerlink" title="设置与更改用户密码"></a>设置与更改用户密码</h2><pre><code>SET PASSWORD FOR &#39;username&#39;@&#39;host&#39; = PASSWORD(&#39;newpassword&#39;);
+撤销用户权限
+REVOKE privilege ON databasename.tablename FROM &#39;username&#39;@&#39;host&#39;;
+privilege, databasename, tablename – 同授权部分
+REVOKE SELECT ON *.* FROM &#39;javacui&#39;@&#39;%&#39;;
+删除用户
+DROP USER ‘username’@&#39;host’;
+操作后切记刷新数据库
+flush privileges;
+</code></pre>
+<h2 id="安装好的mysql-关机后就起不来了"><a href="#安装好的mysql-关机后就起不来了" class="headerlink" title="安装好的mysql,关机后就起不来了"></a>安装好的mysql,关机后就起不来了</h2><pre><code>查看了一下MySQL的启动日志`less /var/log/mysqld.log` 
+错误日志如下：
+[ERROR] Can’t start server: can’t create PID filepath: No such file or directory
+
+错误原因
+一般是由于服务器强制关机导致pid文件丢失。
+
+解决办法
+在/etc/my.cnf 中查看pid-file的位置
+
+pid-file=/var/run/mysql/mysqld.pid
+创建对应的目录并修改权限
+
+mkdir -p /var/run/mysql
+touch /var/run/mysql/mysqld.pid
+
+因为MySQL启动是用mysql这个用户运行的,我们之前用的是root用户创建的文件夹,那么mysql用户是没有权限的,所以我们需要给mysql用户授权
+chown mysql.mysql /var/run/mysql/mysqld.pid
+再启动MySQL应该就没问题了。
+service mysqld start
+Starting mysqld (via systemctl): [ 确定 ]
+到此, 启动成功了
+然而并没有结束
+再次重启动虚拟机, mysql服务又又又TM起不起来了, 依然是老问题, 但是每次都去配置一下, 也不是个事.
+虽然可以写个脚本解决, 但是感觉还是不方便.遂~ 我把pid文件的位置换了个地方.
+这里需要说明一下, 默认mysqld.pid的路径是`/var/run/mysqld/mysqld.pid` 这个路径是放在内存中的, 所以每次关机了就会删除.
+我把这个文件换到了这个路径下面`/var/lib/mysql/mysqld.pid`,需要做的修改如下:
+
+### 1. 修改配置文件
+修改`/etc/my.cnf`里面的pid-file值为这样:
+pid-file=/var/lib/mysql/mysqld.pid
+
+### 2. 修改启动文件
+修改`/etc/init.d/mysqld`文件里面的pid-file为这样:(使用vim命令, 然后找到这一行修改)
+get_mysql_option pid-file &quot;/var/lib/mysql/mysqld.pid&quot; mysqld mysqld_safe
+
+### 3. 重新加载启动文件
+systemctl daemon-reload
+
+### 4. 重启MySQL
+service mysqld start
+
+### 5. 将MySQL加入开机启动
+如果你的mysql没有开启启动,可以使用这个命令加入:
+chkconfig mysqld on
+Can&#39;t create/write to file &#39;/home/mysql/data/is_writable&#39; (Errcode: 13 - Permission denied)
+chown mysql.mysql -R /home/mysql/data
+vi /etc/selinux/config  改成disabled
+</code></pre>
+<h2 id="数据库报错：this-is-incompatible-with-sql-mode-only-full-group-by"><a href="#数据库报错：this-is-incompatible-with-sql-mode-only-full-group-by" class="headerlink" title="数据库报错：this is incompatible with sql_mode=only_full_group_by"></a>数据库报错：this is incompatible with sql_mode=only_full_group_by</h2><pre><code>select 选取分组中的列+聚合函数 from 表名称 group by 分组的列 
+从语法格式来看，是先有分组，再确定检索的列，检索的列只能在参加分组的列中选。
+ONLY_FULL_GROUP_BY的意思是：对于GROUP BY聚合操作，如果在SELECT中的列，没有在GROUP BY中出现，那么这个SQL是不合法的，因为列不在GROUP BY从句中，
+也就是说查出来的列必须在group by后面出现否则就会报错，或者这个字段出现在聚合函数里面。
+
+查看mysql版本命令：select version();
+查看sql_model参数命令：
+SELECT @@GLOBAL.sql_mode;
+SELECT @@SESSION.sql_mode;
+发现：
+ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+第一项默认开启ONLY_FULL_GROUP_BY，
+解决方法：
+1.只选择出现在group by后面的列，或者给列增加聚合函数；（不推荐）
+2.命令行输入：
+set @@GLOBAL.sql_mode=&#39;&#39;;
+set sql_mode =&#39;STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&#39;;
+默认关掉ONLY_FULL_GROUP_BY！
+ 
+这个时候 在用工具select 一下
+SELECT @@sql_mode;
+SELECT @@GLOBAL.sql_mode;
+ 
+发现已经不存在ONLY_FULL_GROUP_BY ，感觉已经OK。但是如果你重启Mysql服务的话，发现ONLY_FULL_GROUP_BY还是会存在的
+ 
+想要彻底解决这个问题 就得去改my.ini 配置 （如果你们mysql 没有这个文件，就把my-default.ini 改成my.ini，我这个版本就是没有my.ini配置问题）
+ 
+在 [mysqld]和[mysql]下添加
+sql_mode =STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+
+
+mysql数据库的中有一个环境变量sql_mode,定义了mysql应该支持的sql语法，数据校验等
+mysql5.0以上版本支持三种sql_mode模式：ANSI、TRADITIONAL和STRICT_TRANS_TABLES。
+ANSI模式：宽松模式，对插入数据进行校验，如果不符合定义类型或长度，对数据类型调整或截断保存，报warning警告。
+TRADITIONAL模式：严格模式，当向mysql数据库插入数据时，进行数据的严格校验，保证错误数据不能插入，报error错误。用于事物时，会进行事物的回滚。
+STRICT_TRANS_TABLES模式：严格模式，进行数据的严格校验，错误数据不能插入，报error错误。   
+</code></pre>
+]]></content>
+      <categories>
+        <category>database</category>
+      </categories>
+      <tags>
+        <tag>mysql linux</tag>
       </tags>
   </entry>
 </search>
