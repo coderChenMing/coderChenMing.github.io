@@ -6,7 +6,7 @@
   <link href="http://coderchenming.github.io/atom.xml" rel="self"/>
   
   <link href="http://coderchenming.github.io/"/>
-  <updated>2021-08-07T03:49:18.152Z</updated>
+  <updated>2021-08-07T08:01:28.738Z</updated>
   <id>http://coderchenming.github.io/</id>
   
   <author>
@@ -17,11 +17,24 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>安装mysql</title>
+    <link href="http://coderchenming.github.io/2021/08/08/%E5%AE%89%E8%A3%85mysql/"/>
+    <id>http://coderchenming.github.io/2021/08/08/%E5%AE%89%E8%A3%85mysql/</id>
+    <published>2021-08-07T16:01:28.000Z</published>
+    <updated>2021-08-07T08:01:28.738Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>使用hexo搭建githubpage博客</title>
     <link href="http://coderchenming.github.io/2020/08/07/%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BAgithubpage%E5%8D%9A%E5%AE%A2/"/>
     <id>http://coderchenming.github.io/2020/08/07/%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BAgithubpage%E5%8D%9A%E5%AE%A2/</id>
     <published>2020-08-07T00:19:58.000Z</published>
-    <updated>2021-08-07T03:49:18.152Z</updated>
+    <updated>2021-08-07T08:08:28.833Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;为什么要搞博客？&quot;&gt;&lt;a href=&quot;#为什么要搞博客？&quot; class=&quot;headerlink&quot; title=&quot;为什么要搞博客？&quot;&gt;&lt;/a&gt;为什么要搞博客？&lt;/h2&gt;&lt;p&gt;   互联网技术日新月异，如何快速又高效的提高我们的技术水平是每一个程序员都要面临的问题，像我，一天工作8-10小时，&lt;br&gt;上下班路上还要花费3到4个小时，除却这些时间，每天留给自己学习的时间不过两三个小时。大家都知道，现在行内内卷严重，&lt;br&gt;无论是出于家庭原因还是个人职业的发展，充分利用这有效的一点时间来提升自己的技术水平是十分重要的，虽然现在学习一门技术&lt;br&gt;有很多手段，比如看b站视频，某宝买点资源，或者是工资内部学习资料等等，各种方式大大降低了我们学习的困难程度，但是人类的脑子&lt;br&gt;是健忘的，所谓好记性不如烂笔头，将学习成果通过博客的方式来输出，我觉得是非常有利于我们自己的一件事。&lt;br&gt;    好处呢，大概有以下几点：&lt;br&gt;        1.加深印象。这点很有体会，某个技术点学起来没什么难度，但是你又不经常用，过了一段时间，忘了，再想拿起来，还得四处&lt;br&gt;    找资料，总结，重复成本很高。&lt;br&gt;        2.方便查找。同样，将学习成果按照自己的习惯分类，当你需要用的时候，很容易查找，很方便.&lt;br&gt;        3.培养总结的习惯。很好的培养自己思考和总结的能力，说不定哪天还能创造点东西，哈哈。&lt;br&gt;        4.交流进步。众人拾柴火焰高，一人一个想法，一千个人交流，每个人将会有一千个想法，棒棒哒.&lt;/p&gt;
