@@ -6,7 +6,7 @@
   <link href="http://coderchenming.github.io/atom.xml" rel="self"/>
   
   <link href="http://coderchenming.github.io/"/>
-  <updated>2021-08-07T08:01:28.738Z</updated>
+  <updated>2021-08-07T08:26:37.377Z</updated>
   <id>http://coderchenming.github.io/</id>
   
   <author>
@@ -21,11 +21,13 @@
     <link href="http://coderchenming.github.io/2021/08/08/%E5%AE%89%E8%A3%85mysql/"/>
     <id>http://coderchenming.github.io/2021/08/08/%E5%AE%89%E8%A3%85mysql/</id>
     <published>2021-08-07T16:01:28.000Z</published>
-    <updated>2021-08-07T08:01:28.738Z</updated>
+    <updated>2021-08-07T08:26:37.377Z</updated>
     
     
     
     
+    
+    <category term="mysql" scheme="http://coderchenming.github.io/tags/mysql/"/>
     
   </entry>
   
