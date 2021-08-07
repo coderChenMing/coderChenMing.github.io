@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>ChamFlightChen&#39;s Blog</title>
+  <title>CharmFlightChen&#39;s Blog</title>
   
   <subtitle>留心处处皆学问，人情练达即文章</subtitle>
   <link href="http://coderchenming.github.io/atom.xml" rel="self"/>
   
   <link href="http://coderchenming.github.io/"/>
-  <updated>2021-08-07T15:01:39.796Z</updated>
+  <updated>2021-08-07T15:05:11.645Z</updated>
   <id>http://coderchenming.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://coderchenming.github.io/2021/08/08/mongodb-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/"/>
     <id>http://coderchenming.github.io/2021/08/08/mongodb-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/</id>
     <published>2021-08-07T22:45:50.000Z</published>
-    <updated>2021-08-07T15:01:39.796Z</updated>
+    <updated>2021-08-07T15:05:11.645Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;下载安装文件&quot;&gt;&lt;a href=&quot;#下载安装文件&quot; class=&quot;headerlink&quot; title=&quot;下载安装文件&quot;&gt;&lt;/a&gt;下载安装文件&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;wget ftp://192.168.205.11/Third_party/linux/mongodb-linux-x86_64-rhel62-3.4.2.gz
@@ -33,7 +33,7 @@
     <category term="mongo" scheme="http://coderchenming.github.io/categories/mongo/"/>
     
     
-    <category term="linux mongo" scheme="http://coderchenming.github.io/tags/linux-mongo/"/>
+    <category term="mongo" scheme="http://coderchenming.github.io/tags/mongo/"/>
     
   </entry>
   
@@ -42,7 +42,7 @@
     <link href="http://coderchenming.github.io/2021/08/08/crond%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E4%BA%8C/"/>
     <id>http://coderchenming.github.io/2021/08/08/crond%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E4%BA%8C/</id>
     <published>2021-08-07T22:37:22.000Z</published>
-    <updated>2021-08-07T14:43:43.737Z</updated>
+    <updated>2021-08-07T15:05:11.632Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;CentOS安装crontab&quot;&gt;&lt;a href=&quot;#CentOS安装crontab&quot; class=&quot;headerlink&quot; title=&quot;CentOS安装crontab:&quot;&gt;&lt;/a&gt;CentOS安装crontab:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;yum install crontabs
@@ -54,7 +54,7 @@
     <category term="linux" scheme="http://coderchenming.github.io/categories/linux/"/>
     
     
-    <category term="linux crontab" scheme="http://coderchenming.github.io/tags/linux-crontab/"/>
+    <category term="crontab" scheme="http://coderchenming.github.io/tags/crontab/"/>
     
   </entry>
   
@@ -63,7 +63,7 @@
     <link href="http://coderchenming.github.io/2021/08/08/crond%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/"/>
     <id>http://coderchenming.github.io/2021/08/08/crond%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</id>
     <published>2021-08-07T22:27:36.000Z</published>
-    <updated>2021-08-07T14:35:34.728Z</updated>
+    <updated>2021-08-07T15:05:11.701Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;crond服务实现定时任务。&quot;&gt;&lt;a href=&quot;#crond服务实现定时任务。&quot; class=&quot;headerlink&quot; title=&quot;crond服务实现定时任务。&quot;&gt;&lt;/a&gt;crond服务实现定时任务。&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;cron也是在/etc/init.d/中注册从而自启的，启动后它会扫描/var/spool/cron 、/etc/cron.d目录和 /etc/anacrontab文件，扫描到的文件中定义了各种定时任务。
@@ -75,7 +75,7 @@
     <category term="linux" scheme="http://coderchenming.github.io/categories/linux/"/>
     
     
-    <category term="linux crond" scheme="http://coderchenming.github.io/tags/linux-crond/"/>
+    <category term="crond" scheme="http://coderchenming.github.io/tags/crond/"/>
     
   </entry>
   
@@ -84,7 +84,7 @@
     <link href="http://coderchenming.github.io/2021/08/08/jdk1-8%E5%AE%89%E8%A3%85/"/>
     <id>http://coderchenming.github.io/2021/08/08/jdk1-8%E5%AE%89%E8%A3%85/</id>
     <published>2021-08-07T20:52:29.000Z</published>
-    <updated>2021-08-07T13:43:54.776Z</updated>
+    <updated>2021-08-07T15:05:11.683Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;下载jdk1-8安装包&quot;&gt;&lt;a href=&quot;#下载jdk1-8安装包&quot; class=&quot;headerlink&quot; title=&quot;下载jdk1.8安装包&quot;&gt;&lt;/a&gt;下载jdk1.8安装包&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;wget ftp://192.168.205.11/Third_party/linux/jdk-8u162-linux-x64.rpm
@@ -96,7 +96,7 @@
     <category term="java" scheme="http://coderchenming.github.io/categories/java/"/>
     
     
-    <category term="jdk linux" scheme="http://coderchenming.github.io/tags/jdk-linux/"/>
+    <category term="jdk" scheme="http://coderchenming.github.io/tags/jdk/"/>
     
   </entry>
   
@@ -105,7 +105,7 @@
     <link href="http://coderchenming.github.io/2021/08/08/%E5%AE%89%E8%A3%85mysql5.7/"/>
     <id>http://coderchenming.github.io/2021/08/08/%E5%AE%89%E8%A3%85mysql5.7/</id>
     <published>2021-08-07T16:01:28.000Z</published>
-    <updated>2021-08-07T14:18:45.757Z</updated>
+    <updated>2021-08-07T15:05:11.659Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;下载mysql-5-7安装包&quot;&gt;&lt;a href=&quot;#下载mysql-5-7安装包&quot; class=&quot;headerlink&quot; title=&quot;下载mysql-5.7安装包&quot;&gt;&lt;/a&gt;下载mysql-5.7安装包&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;centos6下载:
@@ -118,7 +118,7 @@ wget ftp://192.168.205.11/Third_party/linux/MySQL-5.7.23.zip
     <category term="database" scheme="http://coderchenming.github.io/categories/database/"/>
     
     
-    <category term="mysql linux" scheme="http://coderchenming.github.io/tags/mysql-linux/"/>
+    <category term="mysql" scheme="http://coderchenming.github.io/tags/mysql/"/>
     
   </entry>
   
