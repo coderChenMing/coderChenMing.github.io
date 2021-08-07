@@ -6,7 +6,7 @@
   <link href="http://coderchenming.github.io/atom.xml" rel="self"/>
   
   <link href="http://coderchenming.github.io/"/>
-  <updated>2021-08-07T15:05:11.645Z</updated>
+  <updated>2021-08-07T15:17:16.765Z</updated>
   <id>http://coderchenming.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux 防火墙命令</title>
+    <link href="http://coderchenming.github.io/2021/08/08/linux-%E9%98%B2%E7%81%AB%E5%A2%99%E5%91%BD%E4%BB%A4/"/>
+    <id>http://coderchenming.github.io/2021/08/08/linux-%E9%98%B2%E7%81%AB%E5%A2%99%E5%91%BD%E4%BB%A4/</id>
+    <published>2021-08-07T23:08:01.000Z</published>
+    <updated>2021-08-07T15:17:16.765Z</updated>
+    
+    
+    <summary type="html">&lt;h4 id=&quot;centos-版本不同，开启端口号方式也不一样，centos6是iptables，centos7是firewall。&quot;&gt;&lt;a href=&quot;#centos-版本不同，开启端口号方式也不一样，centos6是iptables，centos7是firewall。&quot; class=&quot;headerlink&quot; title=&quot;centos 版本不同，开启端口号方式也不一样，centos6是iptables，centos7是firewall。&quot;&gt;&lt;/a&gt;centos 版本不同，开启端口号方式也不一样，centos6是iptables，centos7是firewall。&lt;/h4&gt;&lt;h2 id=&quot;Centos6-8操作防火墙&quot;&gt;&lt;a href=&quot;#Centos6-8操作防火墙&quot; class=&quot;headerlink&quot; title=&quot;Centos6.8操作防火墙:&quot;&gt;&lt;/a&gt;Centos6.8操作防火墙:&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;配置文件:/etc/sysconfig/iptables
+开启某个端口号有两种方式: 一种是命令方式，一种是修改配置文件方式
+查看防火墙状态: service iptables status
+开启防火墙(重启后永久生效): chkconfig iptables on
+关闭防火墙(重启后永久生效): chkconfig iptables off
+开启防火墙(即时生效，重启后失效): service iptables start
+关闭防火墙(即时生效，重启后失效): service iptables stop
+重启防火墙: service iptables restartd
+查看开启的端口号: service iptables status
+&lt;/code&gt;&lt;/pre&gt;</summary>
+    
+    
+    
+    <category term="linux" scheme="http://coderchenming.github.io/categories/linux/"/>
+    
+    
+    <category term="防火墙" scheme="http://coderchenming.github.io/tags/%E9%98%B2%E7%81%AB%E5%A2%99/"/>
+    
+  </entry>
   
   <entry>
     <title>mongodb 安装与使用入门</title>

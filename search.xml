@@ -183,6 +183,69 @@ export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JAVA_HOME&#125;/jre/lib:$CL
       </tags>
   </entry>
   <entry>
+    <title>linux 防火墙命令</title>
+    <url>/2021/08/08/linux-%E9%98%B2%E7%81%AB%E5%A2%99%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h4 id="centos-版本不同，开启端口号方式也不一样，centos6是iptables，centos7是firewall。"><a href="#centos-版本不同，开启端口号方式也不一样，centos6是iptables，centos7是firewall。" class="headerlink" title="centos 版本不同，开启端口号方式也不一样，centos6是iptables，centos7是firewall。"></a>centos 版本不同，开启端口号方式也不一样，centos6是iptables，centos7是firewall。</h4><h2 id="Centos6-8操作防火墙"><a href="#Centos6-8操作防火墙" class="headerlink" title="Centos6.8操作防火墙:"></a>Centos6.8操作防火墙:</h2><pre><code>配置文件:/etc/sysconfig/iptables
+开启某个端口号有两种方式: 一种是命令方式，一种是修改配置文件方式
+查看防火墙状态: service iptables status
+开启防火墙(重启后永久生效): chkconfig iptables on
+关闭防火墙(重启后永久生效): chkconfig iptables off
+开启防火墙(即时生效，重启后失效): service iptables start
+关闭防火墙(即时生效，重启后失效): service iptables stop
+重启防火墙: service iptables restartd
+查看开启的端口号: service iptables status
+</code></pre>
+<h3 id="开启某个端口号"><a href="#开启某个端口号" class="headerlink" title="开启某个端口号"></a>开启某个端口号</h3><pre><code>开放80端口
+iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
+保存开启的端口号
+service iptables save
+重新启动防火墙
+service iptables restart
+</code></pre>
+<h3 id="开启某个范围的端口号"><a href="#开启某个范围的端口号" class="headerlink" title="开启某个范围的端口号"></a>开启某个范围的端口号</h3><pre><code>开启 18881~65534 端口
+iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 18881:65534 -j ACCEPT
+保存开启的端口号
+service iptables save
+重新启动防火墙
+service iptables restart
+</code></pre>
+<h3 id="通过修改配置文件开启端口号"><a href="#通过修改配置文件开启端口号" class="headerlink" title="通过修改配置文件开启端口号"></a>通过修改配置文件开启端口号</h3><pre><code>开放80端口
+vi /etc/sysconfig/iptables
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
+启动防火墙
+service iptables restart
+
+参数说明：
+–A 参数就看成是添加一条规则
+–p 指定是什么协议，我们常用的tcp 协议，当然也有udp，例如53端口的DNS
+–dport 就是目标端口，当数据从外部进入服务器为目标端口
+–j 就是指定是 ACCEPT -接收 或者 DROP 不接收
+查看防火墙对外开放了哪些端口
+iptables -L -n
+</code></pre>
+<h2 id="CentOs7操作防火墙"><a href="#CentOs7操作防火墙" class="headerlink" title="CentOs7操作防火墙"></a>CentOs7操作防火墙</h2><pre><code>查看防火状态:     systemctl status firewalld
+暂时关闭防火墙:    systemctl stop firewalld
+永久关闭防火墙:    systemctl disable firewalld
+重启防火墙:    systemctl enable firewalld
+</code></pre>
+<h3 id="firewalld"><a href="#firewalld" class="headerlink" title="firewalld"></a>firewalld</h3><pre><code>Centos7默认安装了firewalld，如果没有安装的话，可以使用 yum install firewalld firewalld-config进行安装。
+启动防火墙: systemctl start firewalld
+禁用防火墙: systemctl stop firewalld
+设置开机启动: systemctl enable firewalld
+停止并禁用开机启动: sytemctl disable firewalld
+</code></pre>
+<h2 id="查看Linux发行版本"><a href="#查看Linux发行版本" class="headerlink" title="查看Linux发行版本"></a>查看Linux发行版本</h2><pre><code>uname -a
+cat /etc/redhat-release
+</code></pre>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>防火墙</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>mongodb 安装与使用入门</title>
     <url>/2021/08/08/mongodb-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/</url>
     <content><![CDATA[<h2 id="下载安装文件"><a href="#下载安装文件" class="headerlink" title="下载安装文件"></a>下载安装文件</h2><pre><code>wget ftp://192.168.205.11/Third_party/linux/mongodb-linux-x86_64-rhel62-3.4.2.gz
