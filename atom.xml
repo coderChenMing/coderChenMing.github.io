@@ -85,6 +85,26 @@ v-text：解决插值表达式闪烁的问题
   </entry>
   
   <entry>
+    <title>git 使用</title>
+    <link href="http://coderchenming.github.io/2019/03/10/git-%E4%BD%BF%E7%94%A8/"/>
+    <id>http://coderchenming.github.io/2019/03/10/git-%E4%BD%BF%E7%94%A8/</id>
+    <published>2019-03-09T20:09:46.000Z</published>
+    <updated>2021-08-08T16:16:08.865Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;管理分支&quot;&gt;&lt;a href=&quot;#管理分支&quot; class=&quot;headerlink&quot; title=&quot;管理分支&quot;&gt;&lt;/a&gt;管理分支&lt;/h2&gt;&lt;p&gt;   ##查看分支&lt;br&gt;    1、查看分支&lt;br&gt;        $ git branch&lt;br&gt;        * master&lt;br&gt;        *标识的是你当前所在的分支。&lt;br&gt;    2.查看远程分支&lt;br&gt;        git branch -r&lt;br&gt;    3、查看所有分支&lt;br&gt;        git branch -a&lt;/p&gt;
+&lt;h2 id=&quot;本地创建新的分支&quot;&gt;&lt;a href=&quot;#本地创建新的分支&quot; class=&quot;headerlink&quot; title=&quot;本地创建新的分支&quot;&gt;&lt;/a&gt;本地创建新的分支&lt;/h2&gt;</summary>
+    
+    
+    
+    <category term="version_control" scheme="http://coderchenming.github.io/categories/version-control/"/>
+    
+    
+    <category term="git" scheme="http://coderchenming.github.io/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
     <title>mongodb 安装与使用入门</title>
     <link href="http://coderchenming.github.io/2019/01/08/mongodb-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/"/>
     <id>http://coderchenming.github.io/2019/01/08/mongodb-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/</id>
