@@ -38,20 +38,24 @@
     var CONFIG = {"hostname":"coderchenming.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="下载安装文件wget ftp:&#x2F;&#x2F;192.168.205.11&#x2F;Third_party&#x2F;linux&#x2F;mongodb-linux-x86_64-rhel62-3.4.2.gz  安装">
+  <meta name="description" content="下载jdk1.8安装包wget ftp:&#x2F;&#x2F;192.168.205.11&#x2F;Third_party&#x2F;linux&#x2F;jdk-8u162-linux-x64.rpm  查看已安装jdk">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mongodb 安装与使用入门">
-<meta property="og:url" content="http://coderchenming.github.io/2019/01/08/mongodb-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:title" content="jdk1.8安装">
+<meta property="og:url" content="http://coderchenming.github.io/2018/04/08/jdk1-8%E5%AE%89%E8%A3%85/index.html">
 <meta property="og:site_name" content="CharmFlightChen&#39;s Blog">
-<meta property="og:description" content="下载安装文件wget ftp:&#x2F;&#x2F;192.168.205.11&#x2F;Third_party&#x2F;linux&#x2F;mongodb-linux-x86_64-rhel62-3.4.2.gz  安装">
+<meta property="og:description" content="下载jdk1.8安装包wget ftp:&#x2F;&#x2F;192.168.205.11&#x2F;Third_party&#x2F;linux&#x2F;jdk-8u162-linux-x64.rpm  查看已安装jdk">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-01-07T22:45:50.000Z">
-<meta property="article:modified_time" content="2021-08-07T15:35:03.354Z">
+<meta property="og:image" content="http://coderchenming.github.io/images/install_jdk/look.png">
+<meta property="og:image" content="http://coderchenming.github.io/images/install_jdk/install.png">
+<meta property="og:image" content="http://coderchenming.github.io/images/install_jdk/verify.png">
+<meta property="article:published_time" content="2018-04-07T20:52:29.000Z">
+<meta property="article:modified_time" content="2018-04-07T21:36:15.000Z">
 <meta property="article:author" content="CharmFlightChen">
-<meta property="article:tag" content="mongo">
+<meta property="article:tag" content="jdk">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://coderchenming.github.io/images/install_jdk/look.png">
 
-<link rel="canonical" href="http://coderchenming.github.io/2019/01/08/mongodb-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/">
+<link rel="canonical" href="http://coderchenming.github.io/2018/04/08/jdk1-8%E5%AE%89%E8%A3%85/">
 
 
 <script id="page-configurations">
@@ -64,7 +68,7 @@
   };
 </script>
 
-  <title>mongodb 安装与使用入门 | CharmFlightChen's Blog</title>
+  <title>jdk1.8安装 | CharmFlightChen's Blog</title>
   
 
 
@@ -236,7 +240,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://coderchenming.github.io/2019/01/08/mongodb-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/">
+    <link itemprop="mainEntityOfPage" href="http://coderchenming.github.io/2018/04/08/jdk1-8%E5%AE%89%E8%A3%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -249,7 +253,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          mongodb 安装与使用入门
+          jdk1.8安装
         </h1>
 
         <div class="post-meta">
@@ -258,23 +262,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2019-01-07 22:45:50" itemprop="dateCreated datePublished" datetime="2019-01-07T22:45:50Z">2019-01-07</time>
+              <time title="创建时间：2018-04-07 20:52:29 / 修改时间：21:36:15" itemprop="dateCreated datePublished" datetime="2018-04-07T20:52:29Z">2018-04-07</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-07 15:35:03" itemprop="dateModified" datetime="2021-08-07T15:35:03Z">2021-08-07</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mongo/" itemprop="url" rel="index"><span itemprop="name">mongo</span></a>
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
                 </span>
             </span>
 
@@ -287,8 +285,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2019/01/08/mongodb-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/01/08/mongodb-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/" itemprop="commentCount"></span>
+    <a title="valine" href="/2018/04/08/jdk1-8%E5%AE%89%E8%A3%85/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/04/08/jdk1-8%E5%AE%89%E8%A3%85/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -298,14 +296,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4k</span>
+              <span>473</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -317,180 +315,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="下载安装文件"><a href="#下载安装文件" class="headerlink" title="下载安装文件"></a>下载安装文件</h2><pre><code>wget ftp://192.168.205.11/Third_party/linux/mongodb-linux-x86_64-rhel62-3.4.2.gz
+        <h2 id="下载jdk1-8安装包"><a href="#下载jdk1-8安装包" class="headerlink" title="下载jdk1.8安装包"></a>下载jdk1.8安装包</h2><pre><code>wget ftp://192.168.205.11/Third_party/linux/jdk-8u162-linux-x64.rpm
 </code></pre>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="1-解压安装文件"><a href="#1-解压安装文件" class="headerlink" title="(1).解压安装文件"></a>(1).解压安装文件</h3><pre><code>tar -xzvf mongodb-linux-x86_64-rhel62-3.4.2.gz -C /usr/local/eversec/
-cd /usr/local/eversec/
-mv mongodb-linux-x86_64-rhel62-3.4.2 mongodb
-cd /usr/local/eversec/mongodb
-cp bin/* /usr/local/bin
+<h2 id="查看已安装jdk"><a href="#查看已安装jdk" class="headerlink" title="查看已安装jdk"></a>查看已安装jdk</h2><pre><code>rpm -qa|grep jdk
 </code></pre>
-<h3 id="2-创建目录"><a href="#2-创建目录" class="headerlink" title="(2).创建目录"></a>(2).创建目录</h3><pre><code> 创建数据存放目录，例如：mkdir -p /home/mongodb/data
- 创建日志存放目录，例如：mkdir -p /home/mongodb/logs
- 创建pidfile文件路径，例如：mkdir /var/run/mongodb
- 创建conf存放目录，例如：mkdir /usr/local/eversec/mongodb/conf
+   <img src="/images/install_jdk/look.png" width="900px" height="100px" alt="查看已安装jdk">
+   
+<h3 id="若已安装jdk，但其版本不是1-8-0-162，则需将其卸载"><a href="#若已安装jdk，但其版本不是1-8-0-162，则需将其卸载" class="headerlink" title="若已安装jdk，但其版本不是1.8.0_162，则需将其卸载"></a>若已安装jdk，但其版本不是1.8.0_162，则需将其卸载</h3><pre><code>rpm -e + 查到已安装jdk资源
 </code></pre>
-<h3 id="3-修改配置文件"><a href="#3-修改配置文件" class="headerlink" title="(3).修改配置文件"></a>(3).修改配置文件</h3><pre><code>添加如下内容到 vi /usr/local/eversec/mongodb/conf/mongodb.conf
-# mongod.conf
-
-# for documentation of all options, see:
-#   http://docs.mongodb.org/manual/reference/configuration-options/
-
-# where to write logging data.
-systemLog:
-  destination: file
-  logAppend: true
-  path: /home/mongodb/logs/mongodb.log
-
-# Where and how to store data.
-storage:
-  dbPath: /home/mongodb/data/
-  journal:
-    enabled: true
-#  engine:
-#  mmapv1:
-#  wiredTiger:
-
-# how the process runs
-processManagement:
-  fork: true  # fork and run in background
-  pidFilePath: /var/run/mongodb/mongod.pid 
-# location of pidfile
-
-# network interfaces
-net:
-  port: 27017
-  bindIp: 127.0.0.1
-# eg: 127.0.0.1,192.168.200.221 Listen to local interface only, comment to listen on all interfaces.
-
-#security:
-
-#operationProfiling:
-
-#replication:
-
-#sharding:
-
-## Enterprise-Only Options
-
-#auditLog:
-
-#snmp:
-注：
-修改日志文件路径，例：systemLog下的path
-修改数据文件路径，例：storage下的dbPath
-远程访问时，绑定具体IP。例：bindIp:127.0.0.1,192.168.50.228(根据服务器ip填写)
+<h2 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h2><pre><code>rpm -ivh jdk-8u162-linux-x64.rpm
 </code></pre>
-<h2 id="无认证启动"><a href="#无认证启动" class="headerlink" title="无认证启动"></a>无认证启动</h2><pre><code>mongod --config /usr/local/mongodb/conf/mongodb.conf  --dbpath /home/mongodb/data 
+<p>   <img src="/images/install_jdk/install.png" alt="安装jdk"></p>
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><pre><code>vi /etc/profile
 </code></pre>
-<h2 id="客户端连接"><a href="#客户端连接" class="headerlink" title="客户端连接"></a>客户端连接</h2><pre><code>./mongo
-关闭：
-use admin;
-db.shutdownServer();
+<h3 id="在文件末尾添加如下内容"><a href="#在文件末尾添加如下内容" class="headerlink" title="在文件末尾添加如下内容"></a>在文件末尾添加如下内容</h3><pre><code>export JAVA_HOME=/usr/java/jdk1.8.0_162
+export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH
+export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JAVA_HOME&#125;/jre/lib:$CLASSPATH
 </code></pre>
-<h2 id="设置验证用户启动"><a href="#设置验证用户启动" class="headerlink" title="设置验证用户启动"></a>设置验证用户启动</h2><pre><code>设置用户见下方：无认证启动，添加用户后，配置，认证启动
-security:
-Linux：authorization: enabled
-windows:mongodb.conf 配置 auth=true;
-mongod --config /usr/local/mongodb/conf/mongodb.conf  --dbpath /home/mongodb/data --auth
+<h3 id="1-立即生效："><a href="#1-立即生效：" class="headerlink" title="(1).立即生效："></a>(1).立即生效：</h3><pre><code>source /etc/profile
 </code></pre>
-<h2 id="客户端连接-1"><a href="#客户端连接-1" class="headerlink" title="客户端连接"></a>客户端连接</h2><pre><code>./mongo -uroot -p123456 --authenticationDatabase admin
+<h3 id="2-再次进入终端生效"><a href="#2-再次进入终端生效" class="headerlink" title="(2).再次进入终端生效"></a>(2).再次进入终端生效</h3><pre><code>vi /root/.bashrc
+添加source /etc/profile
 </code></pre>
-<h2 id="查看端口占用"><a href="#查看端口占用" class="headerlink" title="查看端口占用"></a>查看端口占用</h2><pre><code>netstat -lanp | grep &quot;27017&quot;
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><pre><code>java -version
 </code></pre>
-<h2 id="mongodb设置开机启动"><a href="#mongodb设置开机启动" class="headerlink" title="mongodb设置开机启动:"></a>mongodb设置开机启动:</h2><pre><code>vim  /etc/rc.local
-mongod --dbpath=/usr/local/mongodb/data --logpath=/usr/local/mongodb/logs/mongodb.log --logappend --fork
-</code></pre>
-<h2 id="关闭mongodb"><a href="#关闭mongodb" class="headerlink" title="关闭mongodb"></a>关闭mongodb</h2><pre><code>use admin;
-db.shutdownServer();
-</code></pre>
-<h2 id="相关操作"><a href="#相关操作" class="headerlink" title="相关操作"></a>相关操作</h2><h3 id="创建数据库："><a href="#创建数据库：" class="headerlink" title="创建数据库："></a>创建数据库：</h3><pre><code>use database;
-eg: use test;
-</code></pre>
-<p>   ###查看数据库下有那些集合：<br>    show collections;</p>
-<h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><pre><code>db.dropDatabase();
-注意：database下在有collection时才会显示
-</code></pre>
-<h3 id="查看数据库列表"><a href="#查看数据库列表" class="headerlink" title="查看数据库列表"></a>查看数据库列表</h3><pre><code>show dbs;
-</code></pre>
-<h3 id="创建集合"><a href="#创建集合" class="headerlink" title="创建集合"></a>创建集合</h3><pre><code>db.createCollection(&quot;namme&quot;,[options]); 
-eg: db.createCollection(&quot;student&quot;);
-name必须要有，options可以省略
-</code></pre>
-<h3 id="删除集合"><a href="#删除集合" class="headerlink" title="删除集合"></a>删除集合</h3><pre><code>db.collection.drop(); eg:db.student.drop();
-</code></pre>
-<h3 id="插入命令"><a href="#插入命令" class="headerlink" title="插入命令"></a>插入命令</h3><pre><code>db.collection.insert(document);
-document:json格式
-eg: 
-db.student.insert(&#123;&quot;name&quot;:&quot;张三&quot;,&quot;age&quot;:24&#125;);
-</code></pre>
-<h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><pre><code>db.collection.update(&#123;*&#125;,&#123;*&#125;);
-eg:
-db.student.update(&#123;&quot;name&quot;:&quot;zhangsan&quot;&#125;,&#123;&quot;name&quot;:&quot;李四&quot;,&quot;age&quot;:20&#125;)
-</code></pre>
-<h3 id="更新2"><a href="#更新2" class="headerlink" title="更新2"></a>更新2</h3><pre><code>db.student.update(&#123;&quot;name&quot;:&quot;zhangsan&quot;&#125;,&#123;$set:&#123;&quot;name&quot;:&quot;李四&quot;,&quot;age&quot;:40&#125;&#125;,&#123;multi:true&#125;);
-$set：修改器相比直接update,直接update:先删除，在插入,$set:做到了真正的更新，可以对指定字段进行更新
-multi: false表示只修改第一个匹配的文档，true：表示更新所有匹配的文档
-</code></pre>
-<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><pre><code>db.student.remove(); // 全部删除
-db.student.remove(&#123;&quot;name&quot;:&quot;张三&quot;&#125;);// 匹配删除
-</code></pre>
-<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><pre><code>db.student.find();//查询全部
-db.student.find(&#123;&quot;name&quot;:&quot;张三&quot;&#125;);//匹配查询
-db.student.find(&#123;&quot;name&quot;:&quot;张三&quot;&#125;,&#123;name:1,age:1,_id:0&#125;);//匹配查询,过滤域显示
-</code></pre>
-<h3 id="用户创建"><a href="#用户创建" class="headerlink" title="用户创建"></a>用户创建</h3><pre><code>用户创建是和数据库对应的，admin数据库
-eg:
-use admin;
-db.createUser(
-        &#123;
-        user:&quot;root&quot;,
-        pwd:&quot;123456&quot;,
-        roles:[&#123;role:&quot;root&quot;,db:&quot;admin&quot;&#125;]
-        &#125;
-);
-结果:
-Successfully added user: &#123;
-        &quot;user&quot; : &quot;root&quot;,
-        &quot;roles&quot; : [
-                &#123;
-                        &quot;role&quot; : &quot;root&quot;,
-                        &quot;db&quot; : &quot;admin&quot;
-                &#125;
-        ]
-&#125;
-use admin;
-db.createUser(
-    &#123;
-    user:&quot;test&quot;,
-    pwd:&quot;123456&quot;,
-    roles:[&#123;role:&quot;root&quot;,db:&quot;admin&quot;&#125;]
-    &#125;
-);
-</code></pre>
-<h3 id="查看用户"><a href="#查看用户" class="headerlink" title="查看用户"></a>查看用户</h3><pre><code>use admin;
-show users;
-</code></pre>
-<h3 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h3><pre><code>db.dropUser(&quot;test&quot;);
-</code></pre>
-<h3 id="修改用户角色"><a href="#修改用户角色" class="headerlink" title="修改用户角色"></a>修改用户角色</h3><pre><code>db.updateUser(&quot;test&quot;,&#123;roles:[&#123;role:&quot;readWriteAnyDatabase&quot;,db:&quot;admin&quot;&#125;]&#125;);
-结果：
-&#123;
-        &quot;_id&quot; : &quot;admin.test&quot;,
-        &quot;user&quot; : &quot;test&quot;,
-        &quot;db&quot; : &quot;admin&quot;,
-        &quot;roles&quot; : [
-                &#123;
-                        &quot;role&quot; : &quot;readWriteAnyDatabase&quot;,
-                        &quot;db&quot; : &quot;admin&quot;
-                &#125;
-        ]
-&#125;
-</code></pre>
-<h3 id="修改用户密码"><a href="#修改用户密码" class="headerlink" title="修改用户密码:"></a>修改用户密码:</h3><pre><code>db.changeUserPassword(&quot;test&quot;,&quot;newPass&quot;);
-然后使用新密码登录进行验证。
-</code></pre>
-
+   <img src="/images/install_jdk/verify.png" width="900px" height="150px" alt="验证已安装jdk">
     </div>
 
     
@@ -515,7 +364,7 @@ show users;
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://coderchenming.github.io/2019/01/08/mongodb-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/" title="mongodb 安装与使用入门">http://coderchenming.github.io/2019/01/08/mongodb-安装与使用入门/</a>
+    <a href="http://coderchenming.github.io/2018/04/08/jdk1-8%E5%AE%89%E8%A3%85/" title="jdk1.8安装">http://coderchenming.github.io/2018/04/08/jdk1-8安装/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -526,7 +375,7 @@ show users;
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/mongo/" rel="tag"># mongo</a>
+              <a href="/tags/jdk/" rel="tag"># jdk</a>
           </div>
 
         
@@ -535,12 +384,12 @@ show users;
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2018/10/08/jdk1-8%E5%AE%89%E8%A3%85/" rel="prev" title="jdk1.8安装">
-      <i class="fa fa-chevron-left"></i> jdk1.8安装
+    <a href="/2018/03/09/linux-%E9%98%B2%E7%81%AB%E5%A2%99%E5%91%BD%E4%BB%A4/" rel="prev" title="linux 防火墙命令">
+      <i class="fa fa-chevron-left"></i> linux 防火墙命令
     </a></div>
       <div class="post-nav-item">
-    <a href="/2019/03/10/git-%E4%BD%BF%E7%94%A8/" rel="next" title="git 使用">
-      git 使用 <i class="fa fa-chevron-right"></i>
+    <a href="/2018/05/07/hello-world/" rel="next" title="入门">
+      入门 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -601,7 +450,7 @@ show users;
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E6%96%87%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">下载安装文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%A7%A3%E5%8E%8B%E5%AE%89%E8%A3%85%E6%96%87%E4%BB%B6"><span class="nav-number">2.1.</span> <span class="nav-text">(1).解压安装文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%88%9B%E5%BB%BA%E7%9B%AE%E5%BD%95"><span class="nav-number">2.2.</span> <span class="nav-text">(2).创建目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">2.3.</span> <span class="nav-text">(3).修改配置文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E8%AE%A4%E8%AF%81%E5%90%AF%E5%8A%A8"><span class="nav-number">3.</span> <span class="nav-text">无认证启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5"><span class="nav-number">4.</span> <span class="nav-text">客户端连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E9%AA%8C%E8%AF%81%E7%94%A8%E6%88%B7%E5%90%AF%E5%8A%A8"><span class="nav-number">5.</span> <span class="nav-text">设置验证用户启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5-1"><span class="nav-number">6.</span> <span class="nav-text">客户端连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8"><span class="nav-number">7.</span> <span class="nav-text">查看端口占用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mongodb%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8"><span class="nav-number">8.</span> <span class="nav-text">mongodb设置开机启动:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%97%ADmongodb"><span class="nav-number">9.</span> <span class="nav-text">关闭mongodb</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C"><span class="nav-number">10.</span> <span class="nav-text">相关操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9A"><span class="nav-number">10.1.</span> <span class="nav-text">创建数据库：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">10.2.</span> <span class="nav-text">删除数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%97%E8%A1%A8"><span class="nav-number">10.3.</span> <span class="nav-text">查看数据库列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E9%9B%86%E5%90%88"><span class="nav-number">10.4.</span> <span class="nav-text">创建集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E9%9B%86%E5%90%88"><span class="nav-number">10.5.</span> <span class="nav-text">删除集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E5%91%BD%E4%BB%A4"><span class="nav-number">10.6.</span> <span class="nav-text">插入命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0"><span class="nav-number">10.7.</span> <span class="nav-text">更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%96%B02"><span class="nav-number">10.8.</span> <span class="nav-text">更新2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4"><span class="nav-number">10.9.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2"><span class="nav-number">10.10.</span> <span class="nav-text">查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E5%88%9B%E5%BB%BA"><span class="nav-number">10.11.</span> <span class="nav-text">用户创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E7%94%A8%E6%88%B7"><span class="nav-number">10.12.</span> <span class="nav-text">查看用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E7%94%A8%E6%88%B7"><span class="nav-number">10.13.</span> <span class="nav-text">删除用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E7%94%A8%E6%88%B7%E8%A7%92%E8%89%B2"><span class="nav-number">10.14.</span> <span class="nav-text">修改用户角色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E7%94%A8%E6%88%B7%E5%AF%86%E7%A0%81"><span class="nav-number">10.15.</span> <span class="nav-text">修改用户密码:</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDjdk1-8%E5%AE%89%E8%A3%85%E5%8C%85"><span class="nav-number">1.</span> <span class="nav-text">下载jdk1.8安装包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%B7%B2%E5%AE%89%E8%A3%85jdk"><span class="nav-number">2.</span> <span class="nav-text">查看已安装jdk</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8B%A5%E5%B7%B2%E5%AE%89%E8%A3%85jdk%EF%BC%8C%E4%BD%86%E5%85%B6%E7%89%88%E6%9C%AC%E4%B8%8D%E6%98%AF1-8-0-162%EF%BC%8C%E5%88%99%E9%9C%80%E5%B0%86%E5%85%B6%E5%8D%B8%E8%BD%BD"><span class="nav-number">2.1.</span> <span class="nav-text">若已安装jdk，但其版本不是1.8.0_162，则需将其卸载</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85jdk"><span class="nav-number">3.</span> <span class="nav-text">安装jdk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">4.</span> <span class="nav-text">配置环境变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E6%B7%BB%E5%8A%A0%E5%A6%82%E4%B8%8B%E5%86%85%E5%AE%B9"><span class="nav-number">4.1.</span> <span class="nav-text">在文件末尾添加如下内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%AB%8B%E5%8D%B3%E7%94%9F%E6%95%88%EF%BC%9A"><span class="nav-number">4.2.</span> <span class="nav-text">(1).立即生效：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%86%8D%E6%AC%A1%E8%BF%9B%E5%85%A5%E7%BB%88%E7%AB%AF%E7%94%9F%E6%95%88"><span class="nav-number">4.3.</span> <span class="nav-text">(2).再次进入终端生效</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81"><span class="nav-number">5.</span> <span class="nav-text">验证</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
