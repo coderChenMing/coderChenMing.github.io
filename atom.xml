@@ -89,10 +89,18 @@ v-text：解决插值表达式闪烁的问题
     <link href="http://coderchenming.github.io/2019/03/10/git-%E4%BD%BF%E7%94%A8/"/>
     <id>http://coderchenming.github.io/2019/03/10/git-%E4%BD%BF%E7%94%A8/</id>
     <published>2019-03-09T20:09:46.000Z</published>
-    <updated>2021-08-08T16:16:08.865Z</updated>
+    <updated>2021-08-08T16:18:54.693Z</updated>
     
     
-    <summary type="html">&lt;h2 id=&quot;管理分支&quot;&gt;&lt;a href=&quot;#管理分支&quot; class=&quot;headerlink&quot; title=&quot;管理分支&quot;&gt;&lt;/a&gt;管理分支&lt;/h2&gt;&lt;p&gt;   ##查看分支&lt;br&gt;    1、查看分支&lt;br&gt;        $ git branch&lt;br&gt;        * master&lt;br&gt;        *标识的是你当前所在的分支。&lt;br&gt;    2.查看远程分支&lt;br&gt;        git branch -r&lt;br&gt;    3、查看所有分支&lt;br&gt;        git branch -a&lt;/p&gt;
+    <summary type="html">&lt;h2 id=&quot;管理分支&quot;&gt;&lt;a href=&quot;#管理分支&quot; class=&quot;headerlink&quot; title=&quot;管理分支&quot;&gt;&lt;/a&gt;管理分支&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;1、查看分支
+    $ git branch
+    * master
+    *标识的是你当前所在的分支。
+2.查看远程分支
+    git branch -r
+3、查看所有分支
+    git branch -a
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&quot;本地创建新的分支&quot;&gt;&lt;a href=&quot;#本地创建新的分支&quot; class=&quot;headerlink&quot; title=&quot;本地创建新的分支&quot;&gt;&lt;/a&gt;本地创建新的分支&lt;/h2&gt;</summary>
     
     
