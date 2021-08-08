@@ -42,6 +42,27 @@ v-text：解决插值表达式闪烁的问题
   </entry>
   
   <entry>
+    <title>互联网安全架构设计(二)</title>
+    <link href="http://coderchenming.github.io/2020/01/16/%E4%BA%92%E8%81%94%E7%BD%91%E5%AE%89%E5%85%A8%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1-%E4%BA%8C/"/>
+    <id>http://coderchenming.github.io/2020/01/16/%E4%BA%92%E8%81%94%E7%BD%91%E5%AE%89%E5%85%A8%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1-%E4%BA%8C/</id>
+    <published>2020-01-15T19:36:16.000Z</published>
+    <updated>2021-08-08T14:59:45.145Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;什么是防盗链&quot;&gt;&lt;a href=&quot;#什么是防盗链&quot; class=&quot;headerlink&quot; title=&quot;什么是防盗链&quot;&gt;&lt;/a&gt;什么是防盗链&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;第三方网站访问下载非本地域名图片等资源时进行阻止下载
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;如何实现防盗链&quot;&gt;&lt;a href=&quot;#如何实现防盗链&quot; class=&quot;headerlink&quot; title=&quot;如何实现防盗链&quot;&gt;&lt;/a&gt;如何实现防盗链&lt;/h2&gt;</summary>
+    
+    
+    
+    <category term="架构设计" scheme="http://coderchenming.github.io/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+    <category term="web安全" scheme="http://coderchenming.github.io/tags/web%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
+  
+  <entry>
     <title>互联网安全架构设计</title>
     <link href="http://coderchenming.github.io/2020/01/08/%E4%BA%92%E8%81%94%E7%BD%91%E5%AE%89%E5%85%A8%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
     <id>http://coderchenming.github.io/2020/01/08/%E4%BA%92%E8%81%94%E7%BD%91%E5%AE%89%E5%85%A8%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/</id>
