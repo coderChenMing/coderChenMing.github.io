@@ -47,7 +47,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://coderchenming.github.io/images/mysql5.7/getMysql.png">
 <meta property="article:published_time" content="2018-10-07T16:01:28.000Z">
-<meta property="article:modified_time" content="2021-08-07T15:35:03.374Z">
+<meta property="article:modified_time" content="2021-08-08T06:58:14.076Z">
 <meta property="article:author" content="CharmFlightChen">
 <meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
@@ -150,17 +150,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">8</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">9</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">6</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">7</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">9</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">10</span></a>
 
   </li>
         <li class="menu-item menu-item-life">
@@ -268,7 +268,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-07 15:35:03" itemprop="dateModified" datetime="2021-08-07T15:35:03Z">2021-08-07</time>
+                <time title="修改时间：2021-08-08 06:58:14" itemprop="dateModified" datetime="2021-08-08T06:58:14Z">2021-08-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -300,14 +300,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>8.2k</span>
+              <span>8.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>7 分钟</span>
+              <span>8 分钟</span>
             </span>
 
         </div>
@@ -566,6 +566,11 @@ ANSI模式：宽松模式，对插入数据进行校验，如果不符合定义�
 TRADITIONAL模式：严格模式，当向mysql数据库插入数据时，进行数据的严格校验，保证错误数据不能插入，报error错误。用于事物时，会进行事物的回滚。
 STRICT_TRANS_TABLES模式：严格模式，进行数据的严格校验，错误数据不能插入，报error错误。   
 </code></pre>
+<h2 id="CentOs7-mysql开机启动设置"><a href="#CentOs7-mysql开机启动设置" class="headerlink" title="CentOs7 mysql开机启动设置"></a>CentOs7 mysql开机启动设置</h2><pre><code>mysql开机启动:
+/usr/lib/systemd/systemd-sysv-install enable mysql
+查看开机启动程序:
+systemctl list-unit-files
+</code></pre>
 
     </div>
 
@@ -677,7 +682,7 @@ STRICT_TRANS_TABLES模式：严格模式，进行数据的严格校验，错误�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDmysql-5-7%E5%AE%89%E8%A3%85%E5%8C%85"><span class="nav-number">1.</span> <span class="nav-text">下载mysql-5.7安装包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%8E%8B%E5%AE%89%E8%A3%85%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">解压安装文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%98%AF%E5%90%A6%E5%B7%B2%E5%AE%89%E8%A3%85mysql"><span class="nav-number">3.</span> <span class="nav-text">查看是否已安装mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E5%B7%B2%E7%BB%8F%E5%AE%89%E8%A3%85%E5%88%99%E5%81%9C%E6%AD%A2mysql%E8%BF%9B%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">如已经安装则停止mysql进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%B8%E8%BD%BD%E5%8E%86%E5%8F%B2%E5%AE%89%E8%A3%85"><span class="nav-number">5.</span> <span class="nav-text">卸载历史安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%855-7%E7%89%88%E6%9C%AC"><span class="nav-number">6.</span> <span class="nav-text">安装5.7版本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%A5%E9%94%991"><span class="nav-number">6.1.</span> <span class="nav-text">报错1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-number">6.1.1.</span> <span class="nav-text">解决办法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%A5%E9%94%992"><span class="nav-number">6.2.</span> <span class="nav-text">报错2</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95-1"><span class="nav-number">6.2.1.</span> <span class="nav-text">解决办法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%8D%E6%8A%A5%E9%94%99"><span class="nav-number">6.3.</span> <span class="nav-text">再报错</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE%E8%A1%A8%E5%AD%98%E5%82%A8%E8%B7%AF%E5%BE%84%E4%B8%BA-home-mysql-data"><span class="nav-number">7.</span> <span class="nav-text">修改数据表存储路径为&#x2F;home&#x2F;mysql&#x2F;data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8mysql"><span class="nav-number">8.</span> <span class="nav-text">启动mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E5%AF%86%E7%99%BB%E9%99%86%E8%AE%BE%E7%BD%AE%E5%AF%86%E7%A0%81"><span class="nav-number">9.</span> <span class="nav-text">无密登陆设置密码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BA%86%E5%AE%89%E5%85%A8%E5%8F%AF%E4%BB%A5%E8%BF%99%E6%A0%B7%E7%A6%81%E6%AD%A2%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%EF%BC%9A"><span class="nav-number">9.1.</span> <span class="nav-text">为了安全可以这样禁止远程连接：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E5%AF%86%E7%99%BB%E5%BD%95%E5%90%8E%E8%AE%BE%E7%BD%AE%E6%96%B0%E5%AF%86%E7%A0%81"><span class="nav-number">9.2.</span> <span class="nav-text">无密登录后设置新密码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%A6%E5%90%88%E6%A0%87%E5%87%86%E7%9A%84%E6%96%B0%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95%E5%90%8E%E4%B8%BA%E4%BA%86%E8%83%BD%E5%A4%9F%E6%94%B9%E6%88%90%E7%AE%80%E5%8D%95%E5%AF%86%E7%A0%81%EF%BC%8C%E9%9C%80%E8%A6%81%E4%BF%AE%E6%94%B9%E4%B8%80%E4%BA%9B%E5%8F%82%E6%95%B0"><span class="nav-number">10.</span> <span class="nav-text">符合标准的新密码登录后为了能够改成简单密码，需要修改一些参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8my-cnf%E4%B8%AD%E9%85%8D%E7%BD%AE%E6%B0%B8%E4%B9%85%E7%94%9F%E6%95%88"><span class="nav-number">10.1.</span> <span class="nav-text">在my.cnf中配置永久生效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E4%B8%BA%E7%AE%80%E5%8D%95%E5%AF%86%E7%A0%81"><span class="nav-number">10.2.</span> <span class="nav-text">修改为简单密码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E6%8E%88%E6%9D%83"><span class="nav-number">11.</span> <span class="nav-text">用户授权</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%9B%B4%E6%94%B9%E7%94%A8%E6%88%B7%E5%AF%86%E7%A0%81"><span class="nav-number">12.</span> <span class="nav-text">设置与更改用户密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%A5%BD%E7%9A%84mysql-%E5%85%B3%E6%9C%BA%E5%90%8E%E5%B0%B1%E8%B5%B7%E4%B8%8D%E6%9D%A5%E4%BA%86"><span class="nav-number">13.</span> <span class="nav-text">安装好的mysql,关机后就起不来了</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8A%A5%E9%94%99%EF%BC%9Athis-is-incompatible-with-sql-mode-only-full-group-by"><span class="nav-number">14.</span> <span class="nav-text">数据库报错：this is incompatible with sql_mode&#x3D;only_full_group_by</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDmysql-5-7%E5%AE%89%E8%A3%85%E5%8C%85"><span class="nav-number">1.</span> <span class="nav-text">下载mysql-5.7安装包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%8E%8B%E5%AE%89%E8%A3%85%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">解压安装文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%98%AF%E5%90%A6%E5%B7%B2%E5%AE%89%E8%A3%85mysql"><span class="nav-number">3.</span> <span class="nav-text">查看是否已安装mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E5%B7%B2%E7%BB%8F%E5%AE%89%E8%A3%85%E5%88%99%E5%81%9C%E6%AD%A2mysql%E8%BF%9B%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">如已经安装则停止mysql进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%B8%E8%BD%BD%E5%8E%86%E5%8F%B2%E5%AE%89%E8%A3%85"><span class="nav-number">5.</span> <span class="nav-text">卸载历史安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%855-7%E7%89%88%E6%9C%AC"><span class="nav-number">6.</span> <span class="nav-text">安装5.7版本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%A5%E9%94%991"><span class="nav-number">6.1.</span> <span class="nav-text">报错1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-number">6.1.1.</span> <span class="nav-text">解决办法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%A5%E9%94%992"><span class="nav-number">6.2.</span> <span class="nav-text">报错2</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95-1"><span class="nav-number">6.2.1.</span> <span class="nav-text">解决办法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%8D%E6%8A%A5%E9%94%99"><span class="nav-number">6.3.</span> <span class="nav-text">再报错</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE%E8%A1%A8%E5%AD%98%E5%82%A8%E8%B7%AF%E5%BE%84%E4%B8%BA-home-mysql-data"><span class="nav-number">7.</span> <span class="nav-text">修改数据表存储路径为&#x2F;home&#x2F;mysql&#x2F;data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8mysql"><span class="nav-number">8.</span> <span class="nav-text">启动mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E5%AF%86%E7%99%BB%E9%99%86%E8%AE%BE%E7%BD%AE%E5%AF%86%E7%A0%81"><span class="nav-number">9.</span> <span class="nav-text">无密登陆设置密码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BA%86%E5%AE%89%E5%85%A8%E5%8F%AF%E4%BB%A5%E8%BF%99%E6%A0%B7%E7%A6%81%E6%AD%A2%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%EF%BC%9A"><span class="nav-number">9.1.</span> <span class="nav-text">为了安全可以这样禁止远程连接：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E5%AF%86%E7%99%BB%E5%BD%95%E5%90%8E%E8%AE%BE%E7%BD%AE%E6%96%B0%E5%AF%86%E7%A0%81"><span class="nav-number">9.2.</span> <span class="nav-text">无密登录后设置新密码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%A6%E5%90%88%E6%A0%87%E5%87%86%E7%9A%84%E6%96%B0%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95%E5%90%8E%E4%B8%BA%E4%BA%86%E8%83%BD%E5%A4%9F%E6%94%B9%E6%88%90%E7%AE%80%E5%8D%95%E5%AF%86%E7%A0%81%EF%BC%8C%E9%9C%80%E8%A6%81%E4%BF%AE%E6%94%B9%E4%B8%80%E4%BA%9B%E5%8F%82%E6%95%B0"><span class="nav-number">10.</span> <span class="nav-text">符合标准的新密码登录后为了能够改成简单密码，需要修改一些参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8my-cnf%E4%B8%AD%E9%85%8D%E7%BD%AE%E6%B0%B8%E4%B9%85%E7%94%9F%E6%95%88"><span class="nav-number">10.1.</span> <span class="nav-text">在my.cnf中配置永久生效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E4%B8%BA%E7%AE%80%E5%8D%95%E5%AF%86%E7%A0%81"><span class="nav-number">10.2.</span> <span class="nav-text">修改为简单密码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E6%8E%88%E6%9D%83"><span class="nav-number">11.</span> <span class="nav-text">用户授权</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E4%B8%8E%E6%9B%B4%E6%94%B9%E7%94%A8%E6%88%B7%E5%AF%86%E7%A0%81"><span class="nav-number">12.</span> <span class="nav-text">设置与更改用户密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%A5%BD%E7%9A%84mysql-%E5%85%B3%E6%9C%BA%E5%90%8E%E5%B0%B1%E8%B5%B7%E4%B8%8D%E6%9D%A5%E4%BA%86"><span class="nav-number">13.</span> <span class="nav-text">安装好的mysql,关机后就起不来了</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8A%A5%E9%94%99%EF%BC%9Athis-is-incompatible-with-sql-mode-only-full-group-by"><span class="nav-number">14.</span> <span class="nav-text">数据库报错：this is incompatible with sql_mode&#x3D;only_full_group_by</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOs7-mysql%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E8%AE%BE%E7%BD%AE"><span class="nav-number">15.</span> <span class="nav-text">CentOs7 mysql开机启动设置</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -693,20 +698,20 @@ STRICT_TRANS_TABLES模式：严格模式，进行数据的严格校验，错误�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -759,12 +764,12 @@ STRICT_TRANS_TABLES模式：严格模式，进行数据的严格校验，错误�
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">21k</span>
+    <span title="站点总字数">22k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">19 分钟</span>
+    <span title="站点阅读时长">20 分钟</span>
 </div>
   <div class="powered-by">
   <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
@@ -777,7 +782,7 @@ STRICT_TRANS_TABLES模式：严格模式，进行数据的严格校验，错误�
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共7.4k字</span>
+  <span class="post-count">博客全站共7.9k字</span>
 </div>
 
         
