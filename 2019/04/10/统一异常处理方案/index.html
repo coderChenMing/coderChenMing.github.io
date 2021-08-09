@@ -38,18 +38,22 @@
     var CONFIG = {"hostname":"coderchenming.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="脚踏实地，积少成多，集腋成裘">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CharmFlightChen&#39;s Blog">
-<meta property="og:url" content="http://coderchenming.github.io/archives/2018/05/index.html">
+  <meta name="description" content="传统异常处理12service层处理 try&amp;#123;...&amp;#125;catch(Exception e)&amp;#123;...&amp;#125;finally&amp;#123;...&amp;#125;controller层处理 try&amp;#123;...&amp;#125;catch(Exception e)&amp;#123;...&amp;#125;finally&amp;#123;...&amp;#125; 存在问题: 1.每个service&#x2F;co">
+<meta property="og:type" content="article">
+<meta property="og:title" content="统一异常处理方案">
+<meta property="og:url" content="http://coderchenming.github.io/2019/04/10/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/index.html">
 <meta property="og:site_name" content="CharmFlightChen&#39;s Blog">
-<meta property="og:description" content="脚踏实地，积少成多，集腋成裘">
+<meta property="og:description" content="传统异常处理12service层处理 try&amp;#123;...&amp;#125;catch(Exception e)&amp;#123;...&amp;#125;finally&amp;#123;...&amp;#125;controller层处理 try&amp;#123;...&amp;#125;catch(Exception e)&amp;#123;...&amp;#125;finally&amp;#123;...&amp;#125; 存在问题: 1.每个service&#x2F;co">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://coderchenming.github.io/images/exception/exception.png">
+<meta property="article:published_time" content="2019-04-09T22:30:06.000Z">
+<meta property="article:modified_time" content="2019-04-09T23:30:06.000Z">
 <meta property="article:author" content="CharmFlightChen">
-<meta property="article:tag" content="java database linux">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://coderchenming.github.io/images/exception/exception.png">
 
-<link rel="canonical" href="http://coderchenming.github.io/archives/2018/05/">
+<link rel="canonical" href="http://coderchenming.github.io/2019/04/10/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/">
 
 
 <script id="page-configurations">
@@ -57,12 +61,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | CharmFlightChen's Blog</title>
+  <title>统一异常处理方案 | CharmFlightChen's Blog</title>
   
 
 
@@ -146,17 +150,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">10</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">11</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">8</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">9</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">12</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">13</span></a>
 
   </li>
         <li class="menu-item menu-item-life">
@@ -227,56 +231,269 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://coderchenming.github.io/2019/04/10/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="CharmFlightChen">
+      <meta itemprop="description" content="脚踏实地，积少成多，集腋成裘">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CharmFlightChen's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          统一异常处理方案
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-04-09 22:30:06 / 修改时间：23:30:06" itemprop="dateCreated datePublished" datetime="2019-04-09T22:30:06Z">2019-04-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/spring-boot/" itemprop="url" rel="index"><span itemprop="name">spring-boot</span></a>
+                </span>
+            </span>
+
+          
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 12 篇日志。 继续努力。</span>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/04/10/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/04/10/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2018</span>
+        <h2 id="传统异常处理"><a href="#传统异常处理" class="headerlink" title="传统异常处理"></a>传统异常处理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">service层处理 try&#123;...&#125;catch(Exception e)&#123;...&#125;finally&#123;...&#125;<br>controller层处理 try&#123;...&#125;catch(Exception e)&#123;...&#125;finally&#123;...&#125;<br></code></pre></td></tr></table></figure>
+<pre><code>存在问题:
+1.每个service/controller都要处理
+2.异常的原因
+</code></pre>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><pre><code>1.service统一编码原则:先校验后判断，有问题时抛出具体异常信息,最后执行具体业务操作,返回成功信息
+2.在统一异常处理类中取捕获异常,无需controller捕获异常,向用户返回统一规范相应信息.
+</code></pre>
+<p>   <img src="/images/exception/exception.png" alt="异常处理"></p>
+<pre><code>异常分类:
+自定义异常(可预知异常):根据自己业务需要给出用户相关异常提示
+不可预知异常:运行时由于各种原因导致的异常,当然对于抛出的异常也可以单独处理
+</code></pre>
+<h2 id="统一异常处理流程"><a href="#统一异常处理流程" class="headerlink" title="统一异常处理流程"></a>统一异常处理流程</h2><pre><code>1.自定义异常类型
+2.自定义错误代码及错误信息
+3.统一抛出自定义异常类
+4.对于可预知异常我们主动抛出,sprinmvc统一捕获,这个异常是我们来控制的,异常信息尽量写的通俗易懂且全面
+5.对于不可预知异常由springmvc统一捕获Exception类型的异常
+6.无论是可预知异常还是不可预知异常,统一返回固定的信息格式:错误代码+错误信息
+</code></pre>
+<h2 id="代码编写"><a href="#代码编写" class="headerlink" title="代码编写"></a>代码编写</h2><pre><code>自定义异常CustomerException extends RuntimeException:方法上无需抛出或者捕获,侵入性低
+相比继承Exception:需要在方法上抛出或者捕获,侵入性高
+</code></pre>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><pre><code>统一异常信息及码值
+public interface ResultCode &#123;
+    //操作是否成功,true为成功，false操作失败
+    boolean success();
+    //操作代码
+    int code();
+    //提示信息
+    String message();
+
+&#125;
+public enum CommonCode implements ResultCode &#123;
+    INVALIAD_PARAM(false, 10003, &quot;参数错误!!&quot;),
+    // 成功
+    SUCCESS(true, 10000, &quot;操作成功！&quot;),
+    // 失败
+    FAIL(false, 11111, &quot;操作失败！&quot;);
+    private CommonCode(boolean success, int code, String message) &#123;
+            this.success = success;
+            this.code = code;
+            this.message = message;
+        &#125;
+&#125;
+
+统一抛出自定义异常类
+public class CustomerException extends RuntimeException &#123;
+    ResultCode resultCode;
+
+    public ResultCode getResultCode() &#123;
+        return resultCode;
+    &#125;
+
+    public CustomerException(ResultCode resultCode) &#123;
+        this.resultCode = resultCode;
+    &#125;
+&#125;
+
+自定义异常
+public class CustomerException extends RuntimeException &#123;
+    ResultCode resultCode;
+
+    public ResultCode getResultCode() &#123;
+        return resultCode;
+    &#125;
+
+    public CustomerException(ResultCode resultCode) &#123;
+        this.resultCode = resultCode;
+    &#125;
+&#125;
+
+统一异常捕获类
+@ControllerAdvice
+public class ExceptionHandler &#123;
+    private static final Logger logger = LoggerFactory.getLogger(ExceptionHandler.class);
+    /**
+     * 未知异常处理
+     * ImmutableMap:只读，支持并发操作
+     */
+    private static ImmutableMap&lt;Class&lt;? extends Throwable&gt;, ResultCode&gt; EXCEPTIONS;
+    /**
+     * 定义mapBuilder
+     */
+    protected static ImmutableMap.Builder&lt;Class&lt;? extends Throwable&gt;, ResultCode&gt; builder = ImmutableMap.builder();
+
+    static &#123;
+        // 定义指定异常对应的错误代码
+        builder.put(HttpMessageNotReadableException.class, CommonCode.INVALIAD_PARAM);
+    &#125;
+    @org.springframework.web.bind.annotation.ExceptionHandler(CustomerException.class)
+    @ResponseBody
+    public ResponseResult handlerCustomerException(CustomerException customerException) &#123;
+        logger.error(&quot;catch ex :&#123;&#125;&quot;, customerException.getMessage());
+        ResultCode resultCode = customerException.getResultCode();
+        return new ResponseResult(resultCode);
+
+    &#125;
+
+    @org.springframework.web.bind.annotation.ExceptionHandler(Exception.class)
+    @ResponseBody
+    public ResponseResult handlerException(Exception exception) &#123;
+        logger.error(&quot;catch ex :&#123;&#125;&quot;, exception.getMessage());
+        if (EXCEPTIONS == null) &#123;
+            EXCEPTIONS=builder.build();//创建后不可更改
+        &#125;
+        ResultCode resultCode = EXCEPTIONS.get(exception);
+        if (null != resultCode) &#123;
+            return new ResponseResult(resultCode);
+        &#125;
+        return new ResponseResult(CommonCode.SERVER_ERROR);
+
+    &#125;
+
+&#125;
+</code></pre>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2018-05-06T22:18:58Z"
-              content="2018-05-06">
-          05-06
-        </time>
-      </div>
+    <div> <div> <div style="text-align:center;color:#40ff00;font-size:16px;"> <span>-------- 文章到这里就结束了 ,</span><span> 下次再会 , Bye Bye --------</span> </div> </div>
+ </div>
+    
+    <div>
+              
+                
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2018/05/07/hello-world/" itemprop="url">
-            <span itemprop="name">入门</span>
-          </a>
-      </div>
+              
+     </div>
+        
 
-    </header>
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>CharmFlightChen
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://coderchenming.github.io/2019/04/10/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/" title="统一异常处理方案">http://coderchenming.github.io/2019/04/10/统一异常处理方案/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/java/" rel="tag"># java</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/03/10/git-%E4%BD%BF%E7%94%A8/" rel="prev" title="git 使用">
+      <i class="fa fa-chevron-left"></i> git 使用
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/01/08/%E4%BA%92%E8%81%94%E7%BD%91%E5%AE%89%E5%85%A8%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" rel="next" title="互联网安全架构设计">
+      互联网安全架构设计 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
-
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -323,6 +540,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%A0%E7%BB%9F%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">传统异常处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">统一异常处理流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E7%BC%96%E5%86%99"><span class="nav-number">4.</span> <span class="nav-text">代码编写</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">4.1.</span> <span class="nav-text">示例</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -338,20 +556,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -404,12 +622,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">23k</span>
+    <span title="站点总字数">26k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">21 分钟</span>
+    <span title="站点阅读时长">23 分钟</span>
 </div>
   <div class="powered-by">
   <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
@@ -422,7 +640,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共8.6k字</span>
+  <span class="post-count">博客全站共9.4k字</span>
 </div>
 
         
