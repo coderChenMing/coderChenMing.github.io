@@ -292,7 +292,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>559</span>
+              <span>1.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -329,7 +329,30 @@ CSRF相对更危险
 </code></pre>
 <h2 id="什么是幂等"><a href="#什么是幂等" class="headerlink" title="什么是幂等"></a>什么是幂等</h2><pre><code>保证数据唯一性,不许有重复,可以防止表单重复提交
 </code></pre>
-<h2 id="保证幂等解决方案"><a href="#保证幂等解决方案" class="headerlink" title="保证幂等解决方案"></a>保证幂等解决方案</h2>
+<h2 id="保证幂等解决方案"><a href="#保证幂等解决方案" class="headerlink" title="保证幂等解决方案"></a>保证幂等解决方案</h2><pre><code>1.MVCC方案(乐观锁无锁机制)
+    多版本并发控制,该策略主要使用update with condition(更新带条件来防止)来保证多次外部请求调用对系统的影响是一致的。
+在系统设计过程中,合理使用乐观锁,通过version 或者updateTime(timestamp)等其他条件,来做乐观锁的判断条件,这样保证更新操作
+即使在并发情况下,也不会有太大问题。例如:
+    select * from tablename where condition= #condition# //取出要更新的对象,带有version
+    update tablename set name=#name# ,version=#version+1# where version=#version#
+    在更新的过程中利用version来防止其他操作对象并发更新,导致更新丢失。为了避免失败,需要一定的重试机制。
+适用场景:
+2.去重表
+    在插入数据的时候,插入去重表,利用数据库的唯一索引特性,保证唯一的逻辑。
+3.悲观锁(阻塞式)
+    select for update ,整个执行过程中锁定该订单对应的记录。注意:这种在db读大于写的时候不要用
+适用场景:写多读少
+4.Token机制,防止页面重复提交(推荐)
+    业务要求:页面的数据只能被点击提交一次
+    发生原因:由于重复点击或者网络重发,或者Nginx重发等情况会导致数据被重复提交
+    解决办法:
+        集群环境:采用token+redis(redis单线程,处理需要排队)
+        单JVM环境:采用token+redis或者token+jvm内存
+        处理流程:
+        数据提交前要向服务申请token,token放到redis或者jvm内存,token设置有效时间,提交后后台校验token,同时删除token
+    生成新的token返回
+</code></pre>
+
     </div>
 
     
@@ -522,12 +545,12 @@ CSRF相对更危险
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">26k</span>
+    <span title="站点总字数">27k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">23 分钟</span>
+    <span title="站点阅读时长">24 分钟</span>
 </div>
   <div class="powered-by">
   <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
@@ -540,7 +563,7 @@ CSRF相对更危险
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共9.4k字</span>
+  <span class="post-count">博客全站共9.8k字</span>
 </div>
 
         
